@@ -137,7 +137,7 @@ def admin_login():
         pw = (request.form['password'] + app.config['SALT']).encode('utf_8')
 
         if user != app.config['USERNAME']:
-            error = 'Invalid username or password: {}'.format(app.config['USERNAME'])
+            error = 'Invalid username or password.'
         elif hashlib.sha512(pw).hexdigest() != app.config['PASSWORD']:
             error = 'Invalid username or password.'
         else:
