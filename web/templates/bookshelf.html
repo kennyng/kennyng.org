@@ -1,0 +1,60 @@
+{% extends "base.html" %}
+{% set active_page = "bookshelf" %}
+
+{% block title %}Kenny Ng :: Bookshelf{% endblock %}
+
+{% block content %}
+  <div id="bookshelf">
+
+    <div class="title-bar">
+      <ul id="books-dropdown">
+        <li id="books-headline"><span id="filter-selected">{{ selected }}</span>
+          <span class="fa fa-caret-down fa-lg fa-fw icon-red"></span>
+          <ul id="books-filter" class="menu">
+            {% for filter in filters %}
+            <li><a href="{{ filter.url|e }}">{{ filter.name }}</a></li>
+            {% endfor %}
+          </ul>
+        </li>
+      </ul>
+    </div>
+
+    <section>
+      <div class="info">
+        <a href="#" data-tooltip="This page was created to keep track of some
+          interesting and useful books that I have read or am currently reading.">
+          <span class="fa fa-info-circle fa-lg icon-red"></span></a>
+      </div>
+    </section>
+
+    <section id="books-display">
+      {% if error %}
+        <div class="placeholder">
+          <span class="fa fa-frown-o fa-5x"></span>
+            <p>My bookshelf is unavailable at the moment.</p>
+            <p>Sorry about that. Please visit again at a later time.</p>
+        </div>
+      {% else %}
+        {% if books|length < 1 %}
+          <div class="placeholder">
+            <span class="fa fa-book fa-5x"></span>
+            <p>No books have been added yet.</p>
+          </div>
+        {% else %}
+          {% for book in books %}
+            <div class="book">
+              <a href="{{ book.url|e }}" rel="external" target="_blank">
+              <img src="{{ book.image|e }}" alt="{{ book.title }}" width="185" height="280">
+              </a>
+            </div>
+          {% endfor %}
+        {% endif %}
+      {% endif %}
+    </section>
+
+  </div>
+{% endblock %}
+
+{% block scripts %}
+  <script src="{{ url_for('static', filename='js/bookshelf.js') }}"></script>
+{% endblock %}

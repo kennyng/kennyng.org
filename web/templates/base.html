@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+  <meta charset="utf-8">
+
+  <title>{% block title %}Kenny Ng{% endblock %}</title>
+  <meta name="description" content="This is the personal website of Kenny Ng.">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="robots" content="noarchive">
+
+  <meta name="msapplication-TileColor" content="#2d89ef">
+  <meta name="msapplication-TileImage" content="{{ url_for('static', filename='icons/favicon-144.png') }}">
+  <link rel="apple-touch-icon" sizes="180x180" href="{{ url_for('static', filename='icons/favicon-180.png') }}">
+  <link rel="icon" sizes="192x192" href="{{ url_for('static', filename='icons/favicon-192.png') }}">
+  <link rel="shortcut icon" href="{{ url_for('static', filename='icons/favicon.ico') }}">
+
+  <link href='http://fonts.googleapis.com/css?family=Permanent+Marker|Lato:400,700' rel='stylesheet' type='text/css'>
+  <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet">
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/normalize/3.0.2/normalize.min.css" rel="stylesheet" type="text/css">
+  <link href="{{ url_for('static', filename='css/style.css') }}" rel="stylesheet" type="text/css">
+</head>
+
+<body>
+  <div id="container">
+    <div id="wrapper">
+      <header role="banner" id="site-header" class="clearfix">
+        <a id="site-header-name" href="{{ url_for('home') }}">Kenny Ng</a>
+
+        <nav role="navigation" id="site-nav">
+          {% set navigation_bar = [
+            (url_for('resume'), 'resume', 'nav-resume', 'Résumé'),
+            (url_for('projects'), 'projects', 'nav-projects', 'Projects'),
+            (url_for('bookshelf'), 'bookshelf', 'nav-bookshelf', 'Bookshelf'),
+          ] -%}
+          {% set active_page = active_page|default('index') -%}
+
+          <ul id="navigation">
+            {% for href, page, spanid, name in navigation_bar %}
+              <li {% if page == 'bookshelf' %}class="final"{% endif %}>
+                <span id="{{ spanid|e }}">
+                  <a href="{{ href|e }}" {% if page == active_page %}class="active"{% endif %}>
+                    <span class="fa fa-square-o icon-peg"></span>
+                    {{ name|e }}</a>
+                </span>
+              </li>
+            {% endfor %}
+          </ul>
+        </nav>
+
+      </header>
+
+      <main role="main">
+        <!--[if lt IE 9]>
+        <div class="compatible-msg">
+          YOUR CURRENT BROWSER IS NOT SUPPORTED.
+          PLEASE UPGRADE TO INTERNET EXPLORER 9+, FIREFOX, OR CHROME.
+        </div>
+        <![endif]-->
+        <noscript>
+          <div class="compatible-msg">
+            JAVASCRIPT MUST BE ENABLED FOR THIS PAGE TO RENDER CORRECTLY AND COMPLETELY.
+          </div>
+        </noscript>
+
+        {% block content %}{% endblock %}
+      </main>
+
+    </div>
+
+    <footer role="contentinfo" id="site-footer">
+      <p>
+        <small>&copy; <time datetime="2015">2015</time> Kenny Ng</small>
+      </p>
+    </footer>
+  </div>
+
+  <!-- Load JavaScript -->
+  <script src="{{ url_for('static', filename='js/main.js') }}"></script>
+  {% block scripts %}{% endblock %}
+</body>
+</html>

@@ -1,0 +1,61 @@
+{% extends "base.html" %}
+
+{% block content %}
+  <h1>Hi, I'm Kenny.</h1>
+
+  <div id="about">
+    <section>
+      <h2 class="subheader">
+        <span class="fa fa-heart-o fa-fw icon-red"></span>
+        I like learning about stuff.
+      </h2>
+      <p>
+        I am <s>a student</s> [currently on a leave of absence] at Stanford University
+        majoring in Mathematical &amp; Computational Science. My studies can be
+        described as applied mathematics and statistics interjected with heavy
+        doses of computer science.
+      </p>
+      <p>
+        Outside of coursework, I enjoy reading books, learning languages, and
+        utilizing the vast resources available online to self-study various subjects.
+      </p>
+    </section>
+    <section>
+      <h2 class="subheader">
+        <span class="fa fa-keyboard-o fa-fw icon-green"></span>
+        I write code and play with data.
+      </h2>
+      <p>
+        My primary interests include:
+          creating intelligent applications that leverage machine learning and data mining,
+          building robust and scalable distributed systems, and
+          discovering insights through data visualizations.
+      </p>
+      <p>
+        However, I am always eager to learn, explore, and play with new topics, technologies, and tools.
+      </p>
+    </section>
+    <section>
+      <h2 class="subheader">
+        <span class="fa fa-futbol-o fa-fw icon-blue"></span>
+        I am a Judoka, a Go player, and an Arsenal fan.
+      </h2>
+      <p>Judoka: someone who practices judo (a martial art and combat sport).</p>
+      <p>Go: an elegant and simple, yet highly complex, strategic board game.</p>
+      <p> Arsenal: by far the greatest [football] team the world has ever seen.</p>
+    </section>
+  </div>
+
+  <div id="contact-repos" class="center">
+    <a href="https://github.com/kennyng" id="icon-github" rel="external" target="_blank">
+        <span class="fa fa-github fa-5x fa-fw"></span></a>
+    <a href="https://bitbucket.org/kennyng" id="icon-bitbucket" rel="external" target="_blank">
+        <span class="fa fa-bitbucket fa-5x fa-fw"></span></a>
+    <a href="#" id="icon-email" rel="external" target="_blank">
+        <span class="fa fa-envelope-o fa-5x fa-fw"></span></a>
+  </div>
+{% endblock %}
+
+{% block scripts %}
+  <script src="{{ url_for('static', filename='js/index.js') }}"></script>
+{% endblock %}

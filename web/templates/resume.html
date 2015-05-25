@@ -1,0 +1,132 @@
+{% extends "base.html" %}
+{% set active_page = "resume" %}
+
+{% block title %}Kenny Ng :: Résumé{% endblock %}
+
+{% block content %}
+  <div id="resume">
+    <h1 class="clearspacing">I am looking for a job.</h1>
+    <div class="smallfont center">For the latest copy of my résumé or
+      for references, contact me at <em><span class="email"></span></em>.
+    </div>
+
+    <section>
+      <h2>Education</h2>
+        <h3>
+            BS, <a href="http://web.stanford.edu/group/mathcompsci/"
+                rel="external" target="_blank">
+                Mathematical &amp; Computational Science</a>, Stanford University
+        </h3>
+        <ul>
+          <li>
+            <div id="show-course" class="noemphasis">Selected Coursework
+                <span class="fa fa-angle-down fa-fw fa-lg"></span>
+            </div>
+            <div id="hide-course" class="noemphasis hidden">Selected Coursework
+              <span class="fa fa-angle-up fa-fw fa-lg"></span>
+            </div>
+          </li>
+          <div id="course-list" class="hidden">
+            <ul>
+              <li>CS108, Object Oriented Programming</li>
+              <li>CS147, Human Computer Interaction</li>
+              <li>CS140, Operating Systems</li>
+              <li>CS161, Design and Analysis of Algorithms</li>
+              <li>CS229, Machine Learning</li>
+              <li>CS245, Database System Principles</li>
+              <li>CS246, Mining Massive Data Sets</li>
+              <li>MATH104, Applied Matrix Theory</li>
+              <li>STATS116, Probability Theory</li>
+              <li>STATS191, Applied Statistics</li>
+              <li>STATS200, Statistical Inference</li>
+              <li>MS&amp;221, Linear and Nonlinear Optimization</li>
+            </ul>
+          </div>
+        </ul>
+
+        <h3 class="clearspacing">
+          2013: <a href="https://undergrad.stanford.edu/programs/bosp/explore/beijing/about-beijing-program"
+                  rel="external" target="_blank">Bing Overseas Studies Program</a>,
+                  Peking University (北京大学)
+        </h3>
+    </section>
+
+    <section>
+      <h2>Experience</h2>
+        <h4>2012 - present:</h4>
+        <h3>
+          Research Assistant &amp; Full Stack Developer,
+          <a href="http://54.191.94.187/" rel="external" target="_blank">Taiko Network</a>
+        </h3>
+
+        <ul>
+          <li>Built API that syncs data between Neo4j, SQL, and Salesforce databases</li>
+          <li>Created interactive graph and map visualizations of the taiko
+                community using D3.js and Sigma.js</li>
+          <li>Wrote Cypher queries (Neo4j) for computing shortest paths,
+                centrality measures, and other metrics</li>
+          <li>Deployed and monitor Django, Ubuntu, Nginx, Gunicorn, PostgreSQL,
+                Memcached, and Neo4j setup on AWS EC2 instances (sysadmin role)</li>
+          <li>Designed and developed interface using Bootstrap</li>
+        </ul>
+
+        <h4>2013:</h4>
+        <h3>
+          Software Engineering Intern,
+          <a href="http://www.practicefusion.com/" rel="external" target="_blank">
+            Practice Fusion</a>
+        </h3>
+
+        <ul>
+          <li>Developed the Practice Fusion API Client,
+                a multi-threaded software application for medical labs to
+                connect with Practice Fusion's EHR system</li>
+          <li>Features an intuitive drag-and-drop interface for transferring
+                files using the HL7 standard and a monitoring tool for diagnosing errors</li>
+        </ul>
+
+        <h4>2012:</h4>
+        <h3>
+          Backend Engineering Intern,
+          <a rel="external" href="https://www.pulse.me/" target="_blank">Pulse</a>
+            <span class="smallfont">(<em>acquired by LinkedIn</em>)</span>
+        </h3>
+
+        <ul class="clearspacing">
+          <li>Reduced the number of duplicate articles in news feeds from
+                12% to 3% by implementing real-time near duplicate detection via tf-idf weighting</li>
+          <li>Built dashboard that monitors the memory distribution of Redis instances</li>
+          <li>Implemented a feature that detects geolocation by IP address on Google App Engine</li>
+          <li>Prototyped internal Django app for automating/simplifying the process
+                of building, demoing, and selling of ads for the business development team</li>
+          <li>Developed custom financial stock feeds for mobile clients to increase user growth</li>
+        </ul>
+    </section>
+
+    <section>
+      <h2>Skills</h2>
+      <h3>Programming Languages:</h3>
+        <ul>
+          <li><span class="noemphasis">Proficient in: </span>Python, C</li>
+          <li><span class="noemphasis">Familiar with: </span>
+            Java, JavaScript, SQL, R, MATLAB</li>
+          <li><span class="noemphasis">Exposure to: </span>C#, C++</li>
+        </ul>
+      <h3>Notable Tools and Technologies:</h3>
+        <ul class="clearspacing">
+          <li><span class="noemphasis">Web: </span>
+            HTML, CSS, jQuery, Flask, Django, Nginx, Gunicorn, uWSGI, Jinja2, SQLAlchemy</li>
+          <li><span class="noemphasis">Databases: </span>
+            MySQL, PostgreSQL, SQLite, Redis, Memcached, Neo4j</li>
+          <li><span class="noemphasis">Platforms: </span>
+            Amazon Web Services, OpenShift, Heroku, Google App Engine, Salesforce</li>
+          <li><span class="noemphasis">Other: </span>
+            Git, Hadoop, OpenCV, D3.js</li>
+        </ul>
+    </section>
+  </div>
+{% endblock %}
+
+{% block scripts %}
+  <script src="{{ url_for('static', filename='js/resume.js') }}"></script>
+{% endblock %}

@@ -1,0 +1,45 @@
+body              { font-family:sans-serif; background:#eee; color:#1d1d1d; }
+h1, h2            { font-family:'Georgia', serif; margin:0; color:#377ba8; }
+h1                { border-bottom:2px solid #eee; font-size:2.5em; }
+h2                { font-size:1.2em; }
+a                 { text-decoration:none; color:#1e8bc3;}
+a:hover           { color:#f7ca18; }
+p                 { margin:0; }
+.id               { color:#f64747; padding-right:0.5em; }
+.title            { color:#1e8bc3; }
+.year             { color:#54cb41; }
+.image            { color:#1d1d1d; }
+.center           { text-align:center; }
+.page             { margin:2em auto; width:75em; border:5px solid #ccc;
+                    padding:0.8em; background:white; }
+.books            { list-style:none; margin:0; padding:0; }
+.books li         { margin:1em 2em; }
+.books li h2      { margin-left:-1.5em; }
+.books a:hover    { color:#f7ca18; }
+.metanav          { text-align:right; font-size:0.8em; padding:0.3em;
+                    margin-bottom:1em; background:#fafafa; }
+.flash            { background:#cee5F5; padding:0.5em; margin:0.5em 0;
+                    border:1px solid #aacbe2; text-align:center; }
+.error            { background:#f0d6d6; padding:0.5em; margin:0.5em 0;
+                    border:1px solid #f64747; text-align:center; }
+.success          { background:#99eb99; padding:0.5em; margin:0.5em 0;
+                    border:1px solid #54cb41; text-align:center; }
+.login-error              { background:#f0d6d6; padding:0.5em; }
+.login-form               { padding:20px; }
+.login-form .field        { padding:3px; margin:1px; }
+.login-form .field label  { display:inline-block; width:120px; margin-left:5px;
+                            font-weight:bold; }
+.login-form .field input  { display:inline-block; }
+.login-form .align        { margin-top:1.5em; }
+.login-form .button       { font-size:1em; margin-left:165px; }
+.sync-form                { font-size:0.9em; border-bottom:1px solid #ccc;
+                            padding:20px 15em; }
+.sync-form .field         { padding:8px; margin:1px; }
+.sync-form .field label   { display:inline-block; width:100px; margin-left:5px;
+                            font-weight:bold; }
+.sync-form .field input   { display:inline-block; }
+.sync-form .input-box     { border:5px solid #fafafa; padding-right:0; }
+.sync-form .align         { margin-top:1.5em; margin-right:1em; text-align:right; }
+.sync-form .button        { font-size:1.5em; }
+
+

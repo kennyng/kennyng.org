@@ -1,0 +1,18 @@
+{% extends "admin_base.html" %}
+{% block body %}
+<div class="center">
+  <h2>Who are you?</h2>
+  {% if error %}<p class=error><strong>ERROR:</strong> {{ error }}{% endif %}
+  <form action="{{ url_for('admin_login') }}" method="post" class="login-form">
+    <div class="field">
+      <label for="username">Username: </label>
+      <input type="text" name="username">
+    </div>
+    <div class="field">
+      <label for="password">Password: </label>
+      <input type="password" name="password">
+    </div>
+    <div class="align"><input type=submit class="button" value=Login></div>
+  </form>
+</div>
+{% endblock %}

@@ -1,0 +1,53 @@
+{% extends "base.html" %}
+{% set active_page = "projects" %}
+
+{% block title %}Kenny Ng :: Projects{% endblock %}
+
+{% block content %}
+  <div id="projects">
+    <div id="project-filter">
+      <ul>
+        <li><a href="javascript:;" id="project-all" class="active">ALL</a></li> /
+        <li><a href="javascript:;" id="project-personal">PERSONAL</a></li> /
+        <li><a href="javascript:;" id="project-school">SCHOOL</a></li> /
+        <li><a href="javascript:;" id="project-work">WORK</a></li>
+      </ul>
+    </div>
+
+    <div id="project-listing">
+
+      <section id="[project]" class="[personal,school,work]">
+        <h3>[project-title]</h3>
+        <h4><span class="fa fa-quote-left icon-green"></span>
+            [project-tagline]&hellip;
+          <span class="fa fa-quote-right icon-green"></span></h4>
+
+        <div class="info-box nonclickable hidden">
+          <p>
+            [project-description]
+          </p>
+          <ul>
+            <li>PROJECT: <a href="#" rel="external" target="_blank">
+                         </a>
+            </li>
+            <li>PAPER: <a href="#" rel="external" target="_blank">
+                      </a>
+            </li>
+            <li>CODE: <a href="#" rel="external" target="_blank">
+                      </a>
+            </li>
+          </ul>
+        </div>
+
+        <div class="more-info-icon"><span class="fa fa-chevron-down icon-green"></span>
+          <span class="fa fa-chevron-up icon-green hidden"></span></div>
+      </section>
+
+    </div>
+
+  </div>
+{% endblock %}
+
+{% block scripts %}
+  <script src="{{ url_for('static', filename='js/projects.js') }}"></script>
+{% endblock %}

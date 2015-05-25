@@ -1,0 +1,17 @@
+{% extends "base.html" %}
+
+{% block title %}Kenny Ng :: 404 Not Found{% endblock %}
+
+{% block content %}
+<div id="not-found" class="center">
+  <h1 class="ultrasize">404</h1>
+  <h2 class="megasize">This page does not exist.</h2>
+
+  <div class="return">
+    <span class="bigsize">Return</span>
+    <a href="{{ url_for('home') }}" class="go-home-icon">
+      <span class="fa fa-home fa-4x"></span>
+    </a>
+    <span class="bigsize">?</span>
+  </div>
+{% endblock %}
