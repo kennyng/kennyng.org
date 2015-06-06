@@ -5,7 +5,8 @@
 
 """
 from flask import Flask
-
+from flask.ext.sqlalchemy import SQLAlchemy
+from flask.ext.misaka import Misaka
 
 # Create application object
 app = Flask(__name__, instance_relative_config=True)
@@ -25,6 +26,13 @@ if app.debug:
     from werkzeug.debug import DebuggedApplication
     app.wsgi_app = DebuggedApplication(app.wsgi_app, True)
 
+# Create SQLAlchemy object (database)
+db = SQLAlchemy(app)
 
-# Import views module (decorator functions)
-import web.views
+# Use Misaka for markdown templates
+Misaka(app)
+
+# Import main views module (main pages)
+from web import views
+# Import admin views
+from web import admin
