@@ -1,0 +1,82 @@
+{% extends 'admin/master.html' %}
+
+{% block title %}Kenny Ng :: Admin{% endblock %}
+
+{% block head %}
+<style>
+  .error           { background:#f0d6d6; padding:0.5em; margin:0.5em 0;
+                      border:1px solid #f64747; text-align:center; }
+  .success         { background:#99eb99; padding:0.5em; margin:0.5em 0;
+                      border:1px solid #54cb41; text-align:center; }
+  .break-lg        { margin-top:5em; }
+  .break-md        { margin-top: 3em; }
+  .break-sm        { margin-top:1.5em; }
+ </style>
+{% endblock %}
+
+{% block messages %}
+  {%- with messages = get_flashed_messages(with_categories=true) %}
+    {% for category, message in messages %}
+      <div class="{{ category }}">{{ message }}</div>
+    {% endfor %}
+   {% endwith -%}
+{% endblock %}
+
+{% block body %}
+{{ super() }}
+<div class="row-fluid">
+  <div class="break-md">
+    {% if session.is_authenticated %}
+    <div class="text-center">
+      <h1>Hello, {{ session.user }}!</h1>
+      <p class="lead">
+        This Admin console allows you to monitor and manage database models, 
+        database/site statistics, and static assets.
+      </p>
+      <p class="break-lg">
+        <em>Note:</em> If you are not <strong>{{ session.user }}</strong>
+        and was somehow able to access this Admin Console, please
+        <a href="mailto:hello@kennyng.org" rel="external" target="_blank">
+          <strong>email me</strong></a> about it
+        so that I can proceed to fix any security vulnerabilities. Thanks!
+      </p>
+    </div>
+    {% else %}
+    <div>
+      <div class="col-xs-7 col-xs-offset-3">
+        <h1 class="text-center">Who are you?</h1>
+        <p class="lead text-center">Please log in.</p>
+      </div>
+      <form class="form-horizontal" method="POST" action="">
+        {{ form.hidden_tag() if form.hidden_tag }}
+        <div class="form-group form-group-lg row">
+          <div class="col-xs-7 col-xs-offset-3">
+            <div class="sr-only">{{ form.username.label }}</div>
+            <div class="input-group">
+              <div class="input-group-addon"><span class="glyphicon glyphicon-user"></span></div>
+              {{ form.username(placeholder=form.username.label.text, class_='form-control') }}
+            </div>
+          </div>
+        </div>
+
+        <div class="form-group form-group-lg row">
+          <div class="col-xs-7 col-xs-offset-3">
+            <div class="sr-only">{{ form.password.label }}</div>
+            <div class="input-group">
+              <div class="input-group-addon"><span class="glyphicon glyphicon-lock"></span></div>
+              {{ form.password(placeholder=form.password.label.text, class_='form-control') }}
+            </div>
+          </div>
+        </div>
+
+        <div class="form-group row break-sm">
+          <div class="col-xs-7 col-xs-offset-3">
+            <button class="btn btn-md btn-block btn-primary" type="submit">Login</button>
+          </div>
+        </div>
+      </form>
+    </div>
+    {% endif %}
+  </div>
+</div>
+{% endblock body %}
