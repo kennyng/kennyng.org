@@ -1,0 +1,97 @@
+@media only screen and (max-width:420px) {
+  #site-header-name {
+    float:left;
+    font-size:2em;
+    margin-bottom:0;
+  }
+  #site-nav {
+    display:none;
+    margin-top:3.5em;
+    padding:0.5em 0 0.75em;
+    border-top:2px dotted #6c7a89;
+  }
+  #site-nav LI {
+    display:block;
+    text-align:left;
+    line-height:1.5;
+  }
+  #nav-menu-bar {
+    display:block;
+  }
+}
+@media only screen and (min-width:40.063em) {
+  #site-header{
+    margin-bottom:2em;
+  }
+  #site-header-name {
+    float:left;
+    text-align:left;
+    margin-bottom:0;
+  }
+  #site-nav {
+    float:right;
+  }
+  #site-nav UL {
+    padding-top:2.5em;
+  }
+  #site-nav LI {
+    display:inline;
+    padding:0 0 0 1em;
+  }
+  #site-footer {
+    text-align:center;
+    max-width:1000px;
+    padding-bottom:0.5em;
+    margin:-3em auto auto;
+  }
+  #not-found .ultrasize {
+    font-size:18em;
+  }
+  #about {
+    max-width:80%;
+    margin:auto;
+  }
+  #resume {
+    max-width:80%;
+    margin:auto;
+  }
+  #projects {
+    max-width:80%;
+    margin:auto;
+  }
+  #project-filter UL {
+    font-size:125%;
+  }
+  #project-filter LI {
+    padding:0 0.75em;
+  }
+  #bookshelf {
+    max-width:80%;
+    margin:auto;
+  }
+  #blog {
+    max-width:85%;
+    margin:auto;
+  }
+}
+
+@media only screen and (min-width:64.063em) {
+  #container {
+    min-height:100%;
+  }
+  #wrapper {
+    padding-bottom:2em;
+    max-width:1000px;
+    margin:auto;
+  }
+}
+
+@media print {
+  BODY {
+    font-family:Tahoma,Arial,sans-serif;
+  }
+  A {
+    color:#000;
+    text-decoration:none;
+  }
+}

@@ -1,0 +1,41 @@
+/* About Page */
+#contact-repos {
+  margin-top:1.5em;
+  margin-bottom:12px;
+}
+#contact-repos .fa-fw {
+  width: 2em;
+}
+#contact-repos A,A:hover {
+  border-bottom:0;
+}
+#contact-repos A[rel=external]:hover {
+  text-decoration:none;
+}
+#icon-github:hover {
+  color:#000;
+}
+#icon-bitbucket:hover {
+  color:#205081;
+}
+#icon-email:hover {
+  color:#db4437;
+}
+#about {
+  border-bottom: 1px solid #6c7a89;
+}
+#about SECTION {
+  margin-bottom:2em;
+}
+#about P {
+  line-height:1.5;
+  margin:0 0 0 4em;
+  padding-left: 1em;
+  border-left: 1px solid #6c7a89;
+}
+#about .extra-indent {
+  padding-left:3em;
+}
+#about .fa-fw {
+  width:0.5em;
+}

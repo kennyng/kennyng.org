@@ -1,0 +1,80 @@
+#bookshelf H1 {
+  text-align:left;
+  margin:0;
+  padding-left:0.3em;
+}
+#bookshelf SECTION {
+  text-align:center;
+}
+#bookshelf A {
+  color:#6c7a89;
+  border-bottom:0;
+}
+#bookshelf A:hover {
+  color:#f64747;
+}
+#bookshelf .title-bar {
+  border-bottom:2px dotted #6c7a89;
+}
+#bookshelf .info {
+  text-align:right;
+  padding:0.3em 0.5em 0 0;
+}
+#bookshelf .book {
+  display:inline-block;
+  position:relative;
+  margin:1.5em 1em 0;
+  width:185px;
+  background-color:#bfbfbf;
+  border:1px inset #bfbfbf;
+}
+#books-dropdown {
+  font-size:2em;
+  line-height:1.2;
+  padding-left:0.3em;
+  list-style-type:none;
+}
+#books-dropdown UL LI {
+  line-height:1.3;
+  list-style-type:none;
+}
+#books-dropdown UL.menu {
+  display:none;
+}
+#books-dropdown UL.visible {
+  display:block;
+  position:absolute;
+  z-index:20;
+  padding:0.25em 0.5em;
+  background:rgba(255,255,255,0.9);
+  border:1px solid #6c7a89;
+}
+.info a[data-tooltip]:link, .info a[data-tooltip]:visited {
+  position: relative;
+  border-bottom: solid 1px;
+}
+.info a[data-tooltip]:after {
+  content: attr(data-tooltip);
+  position: absolute;
+  color: white;
+  top: 1em;
+  left: -20em;
+  width:18em;
+  background:#f64747;
+  text-align:left;
+  line-height:1.4;
+  visibility: hidden;
+  z-index:30;
+  padding: 0.5em 1em;
+  -webkit-border-radius: 8px;
+  -moz-border-radius: 8px;
+  border-radius: 8px;
+}
+.info a[data-tooltip]:hover:before, .info a[data-tooltip]:hover:after {
+  visibility: visible;
+  -webkit-transition: visibility 0s linear .3s;
+  -moz-transition: visibility 0s linear .3s;
+  -o-transition: visibility 0s linear .3s;
+  transition: visibility 0s linear .3s;
+}
+
