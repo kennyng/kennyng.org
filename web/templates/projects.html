@@ -4,58 +4,71 @@
 {% block title %}Kenny Ng :: Projects{% endblock %}
 
 {% block content %}
-  <div id="projects">
+  <div id="projects" class="last-section">
     <div id="project-filter">
       <ul>
-        <li><a href="javascript:;" id="project-all" class="active">ALL</a></li> /
-        <li><a href="javascript:;" id="project-personal">PERSONAL</a></li> /
-        <li><a href="javascript:;" id="project-school">SCHOOL</a></li> /
-        <li><a href="javascript:;" id="project-work">WORK</a></li>
+        <li><a href="projects" id="project-all" class="active">ALL</a></li> /
+        <li><a href="projects/personal" id="project-personal">PERSONAL</a></li> /
+        <li><a href="projects/school" id="project-school">SCHOOL</a></li> /
+        <li><a href="projects/work" id="project-work">WORK</a></li>
       </ul>
     </div>
 
     <div id="project-listing">
-
-      <section id="[project]" class="[personal,school,work]">
-        <h3>[project-title]</h3>
+    {% if error -%}
+      <div class="placeholder">
+        <span class="fa fa-frown-o fa-5x"></span>
+          <p>My projects are unavailable at the moment. <br />
+             Sorry about that. Please visit again at a later time.</p>
+      </div>
+    {% else %}
+      {%- if projects|length < 1 -%}
+      <div class="placeholder">
+        <span class="fa fa-file-code-o fa-5x"></span>
+        <p>No projects have been added yet.</p>
+        <p></p>
+      </div>
+      {% else %}
+      {%- for project in projects -%}
+      <section id="project-id-{{ project.id }}" class="{{ project.category }}">
+        <h3>{{ project.title }}</h3>
         <h4><span class="fa fa-quote-left icon-green"></span>
-            [project-tagline]&hellip;
-          <span class="fa fa-quote-right icon-green"></span></h4>
+          {{ project.tagline }}&hellip;
+        <span class="fa fa-quote-right icon-green"></span></h4>
 
         <div class="info-box nonclickable hidden clearfix">
           <div class="pure-g">
-            <div class="pure-u-1 pure-u-md-8-24 project-img">
-              <img src="http://placehold.it/180x180" alt="project-title" wdith="180" height="180"></img>
+            <div class="pure-u-1 pure-u-md-8-24 pure-img">
+              <span class="img-box">
+                <img src="{{ project.image|e }}" alt="{{ project.title }}"></img>
+              </span>
             </div>
-
             <div class="pure-u-1 pure-u-md-16-24 project-info">
               <p>
-              [project-description] This is a project description.
-              The quick brown fox jumps over the lazy dog. Grumpy wizards
-              make toxic brew for the evil Queen and Jack. This is a project
-              description. The quick brown fox jumps over the lazy dog.
-              Grumpy wizards make toxic brew for the evil Queen and Jack.
-              This is a project description. The quick brown fox jumps over
-              the lazy dog. Grumpy wizards make toxic brew for the
-              evil Queen and Jack.
+                {{ project.description }}
               </p>
-
               <ul>
-                <li><a href="#" rel="external" target="_blank">PROJECT</a></li>
-                <li><a href="#" rel="external" target="_blank">PAPER</a></li>
-                <li><a href="#" rel="external" target="_blank">CODE</a></li>
+                {% if project.url -%}
+                <li><a href="{{ project.url|e }}" rel="external" target="_blank">PROJECT</a></li>
+                {%- endif %}
+                {% if project.paper -%}
+                <li><a href="{{ project.paper|e }}" rel="external" target="_blank">PAPER</a></li>
+                {%- endif %}
+                {% if project.code -%}
+                <li><a href="{{ project.code|e }}" rel="external" target="_blank">CODE</a></li>
+                {%- endif %}
               </ul>
             </div>
           </div>
-
         </div> <!-- end info-box -->
 
         <div class="more-info-icon"><span class="fa fa-chevron-down icon-green"></span>
           <span class="fa fa-chevron-up icon-green hidden"></span></div>
       </section>
-
+      {%- endfor %}
+      {%- endif %}
+    {%- endif %}
     </div>
-
   </div>
 {% endblock %}
 
