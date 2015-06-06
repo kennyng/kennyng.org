@@ -4,6 +4,11 @@ document.addEventListener('DOMContentLoaded', function() {
     menu[0].classList.toggle('visible');
   }, false);
 
+  _.$('bookshelf-about').addEventListener('click', function(e) {
+    e.preventDefault();
+    return false;
+  }, false);
+
   /* Books filtering using AJAX
   _.$('books-filter').addEventListener('click', function(e) {
     if (e.target.tagName == 'A') {

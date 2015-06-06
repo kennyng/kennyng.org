@@ -13,21 +13,25 @@ document.addEventListener('DOMContentLoaded', function() {
   }, false);
 
   _.$('project-all').addEventListener('click', function(e) {
+    e.preventDefault();
     setActiveFilter(e.target);
     resetProjectFilters();
     return false;
   }, false);
   _.$('project-personal').addEventListener('click', function(e) {
+    e.preventDefault();
     setActiveFilter(e.target);
     filterProjects('personal');
     return false;
   }, false);
   _.$('project-school').addEventListener('click', function(e) {
+    e.preventDefault();
     setActiveFilter(e.target);
     filterProjects('school');
     return false;
   }, false);
 _.$('project-work').addEventListener('click', function(e) {
+    e.preventDefault();
     setActiveFilter(e.target);
     filterProjects('work');
     return false;
