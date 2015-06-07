@@ -94,24 +94,26 @@ class ProjectView(AuthModelView):
     def _list_format_thumbnail(view, context, model, name):
         if not model.image:
             return ''
-        return Markup('<img src="{}" width="180" height="180">'.format(model.image))
+        return Markup(('<a href="{url}" target="_blank">'
+                       '<img src="{url}" width="180">'
+                       '</a>').format(url=model.image))
 
     def _list_format_links(view, context, model, name):
-        project, code, paper = '', '', ''
+        project, info, code  = '', '', ''
         if model.url:
             project = model.url
+        if model.info:
+            info = model.info
         if model.code:
             code = model.code
-        if model.paper:
-            paper = model.paper
         return Markup(
-                ('<p><strong>Project: </strong>\n'
+                ('<p><strong>PROJECT: </strong>\n'
                  '<a href="{project}" rel="external" target="_blank">{project}</a></p>\n'
-                 '<p><strong>Paper: </strong>\n'
-                 '<a href="{paper}" rel="external" target="_blank">{paper}</a></p>\n'
-                 '<p><strong>Code: </strong>\n'
+                 '<p><strong>ABOUT: </strong>\n'
+                 '<a href="{info}" rel="external" target="_blank">{info}</a></p>\n'
+                 '<p><strong>CODE: </strong>\n'
                  '<a href="{code}" rel="external" target="_blank">{code}</a></p>\n'
-                ).format(project=project, paper=paper, code=code))
+                ).format(project=project, info=info, code=code))
 
     column_formatters = dict(image=_list_format_thumbnail,
                              url=_list_format_links)
@@ -121,16 +123,17 @@ class ProjectView(AuthModelView):
     column_searchable_list = ('category', 'title')
 
     form_args = dict(url=dict(label='Project/Demo URL'),
-                     paper=dict(label='Paper URL'),
+                     paper=dict(label='Info URL'),
                      code=dict(label='Code Repo URL'),
                      image=dict(label='Image URL'))
 
 
 class PostView(AuthModelView):
     column_display_pk = True
-    column_list = ('id', 'title', 'pub_date', 'tags')
-    column_labels = dict(id='id', pub_date='Published Date', tags='Tag(s)')
-    column_sortable_list = ('id', 'title', 'pub_date')
+    column_list = ('id', 'title', 'pub_date', 'tags', 'is_published')
+    column_labels = dict(id='id', pub_date='Published Date', tags='Tag(s)',
+                         is_published='Published?')
+    column_sortable_list = ('id', 'title', 'pub_date', 'is_published')
     column_searchable_list = ('id', 'title', 'pub_date')
 
 
