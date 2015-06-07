@@ -4,11 +4,12 @@
 {% block title %}Kenny Ng :: Bookshelf{% endblock %}
 
 {% block content %}
-  <div id="bookshelf" class="last-section">
+  <div id="bookshelf">
 
     <div class="title-bar">
       <ul id="books-dropdown">
-        <li id="books-headline"><span id="filter-selected">{{ selected }}</span>
+        <li id="books-headline">
+          <span id="filter-selected">{{ selected }}</span>
           <span class="fa fa-caret-down fa-lg fa-fw icon-red"></span>
           <ul id="books-filter" class="menu">
             {% for filter in filters -%}
@@ -31,9 +32,9 @@
     <section id="books-display">
       {% if error -%}
         <div class="placeholder">
-          <span class="fa fa-frown-o fa-5x"></span>
-            <p>My bookshelf is unavailable at the moment.</p>
-            <p>Sorry about that. Please visit again at a later time.</p>
+          <span class="fa fa-meh-o fa-5x"></span>
+          <p>My bookshelf is unavailable at the moment.<br />
+              Sorry about that. Please visit again at a later time.</p>
         </div>
       {% else %}
         {%- if books|length < 1 -%}

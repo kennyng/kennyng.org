@@ -1,7 +1,49 @@
 /* About Page */
+#about {
+  border-bottom: 1px solid #6c7a89;
+}
+#about SECTION {
+  margin-bottom:2em;
+}
+#about .subheader {
+  margin-left:4em;
+  margin-bottom:0.5em;
+  text-indent:-1em;
+}
+#about P {
+  line-height:1.5;
+  margin:0 0 0 6em;
+  padding-left:1em;
+  padding-right:1em;
+  border-left: 1px solid #6c7a89;
+}
+#about UL {
+  line-height:1.5;
+  margin:0 0 0 6em;
+  padding-left:1em;
+  padding-right:1em;
+  border-left: 1px solid #6c7a89;
+  list-style-position:inside;
+  list-style-type:circle;
+}
+#about UL LI {
+  margin-left: 2em;
+}
+#about .fa-fw {
+  width:0.5em;
+}
+.fa.icon-red {
+  color:#f64747;
+}
+.fa.icon-green {
+  color:#66bb6a;
+}
+.fa.icon-blue {
+  color:#1e8bc3;
+}
 #contact-repos {
   margin-top:1.5em;
-  margin-bottom:12px;
+  margin-bottom:1.5em;
 }
 #contact-repos .fa-fw {
   width: 2em;
@@ -20,22 +62,4 @@
 }
 #icon-email:hover {
   color:#db4437;
-}
-#about {
-  border-bottom: 1px solid #6c7a89;
-}
-#about SECTION {
-  margin-bottom:2em;
-}
-#about P {
-  line-height:1.5;
-  margin:0 0 0 4em;
-  padding-left: 1em;
-  border-left: 1px solid #6c7a89;
-}
-#about .extra-indent {
-  padding-left:3em;
-}
-#about .fa-fw {
-  width:0.5em;
 }

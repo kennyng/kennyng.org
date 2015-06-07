@@ -1,10 +1,6 @@
-#bookshelf H1 {
-  text-align:left;
-  margin:0;
-  padding-left:0.3em;
-}
 #bookshelf SECTION {
   text-align:center;
+  margin-bottom:2em;
 }
 #bookshelf A {
   color:#6c7a89;
@@ -13,41 +9,9 @@
 #bookshelf A:hover {
   color:#f64747;
 }
-#bookshelf .title-bar {
-  border-bottom:2px dotted #6c7a89;
-}
 #bookshelf .info {
   text-align:right;
   padding:0.3em 0.5em 0 0;
-}
-#bookshelf .book {
-  display:inline-block;
-  position:relative;
-  margin:1.5em 1em 0;
-  width:185px;
-  background-color:#bfbfbf;
-  border:1px inset #bfbfbf;
-}
-#books-dropdown {
-  font-size:2em;
-  line-height:1.2;
-  padding-left:0.3em;
-  list-style-type:none;
-}
-#books-dropdown UL LI {
-  line-height:1.3;
-  list-style-type:none;
-}
-#books-dropdown UL.menu {
-  display:none;
-}
-#books-dropdown UL.visible {
-  display:block;
-  position:absolute;
-  z-index:20;
-  padding:0.25em 0.5em;
-  background:rgba(255,255,255,0.9);
-  border:1px solid #6c7a89;
 }
 .info a[data-tooltip]:link, .info a[data-tooltip]:visited {
   position: relative;
@@ -78,3 +42,42 @@
   transition: visibility 0s linear .3s;
 }
 
+.title-bar {
+  border-bottom:2px dotted #6c7a89;
+}
+#books-headline .fa-fw {
+  width:0.75em;
+}
+#filter-selected {
+  font-weight:700;
+}
+#books-dropdown {
+  font-size:2em;
+  line-height:1.2;
+  padding-left:0.3em;
+  list-style-type:none;
+}
+#books-dropdown UL LI {
+  line-height:1.3;
+  list-style-type:none;
+}
+#books-dropdown UL.menu {
+  display:none;
+}
+#books-dropdown UL.visible {
+  display:block;
+  position:absolute;
+  z-index:20;
+  padding:0.25em 0.5em;
+  background:rgba(255,255,255,0.9);
+  border:1px solid #6c7a89;
+}
+
+.book {
+  display:inline-block;
+  position:relative;
+  margin:1.5em 1em 0;
+  width:185px;
+  background-color:#e8e8e8;
+  border:1px inset #e8e8e8;
+}

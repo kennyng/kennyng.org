@@ -1,54 +1,79 @@
+
 #projects SECTION {
   margin-bottom:2em;
   border:1px dotted #6c7a89;
   -moz-border-radius: 12px;
   -webkit-border-radius: 12px;
   border-radius: 12px;
+  cursor:pointer;
 }
-#projects H1 {
-  margin-bottom:1em;
-}
-#projects H2, #projects H3 {
-  font-weight:bold;
-  line-height:1.3;
+#projects H2 {
+  line-height:1.5;
   text-align:center;
   border-bottom:1px dotted #6c7a89;
 }
-#projects H4 {
-  font-style:italic;
+#projects H3 {
   text-align:center;
+  font-style:italic;
   margin:0.5em 2em;
 }
 #projects UL {
-  margin:0 0 0.5em 2em;
   list-style-type:none;
 }
 #projects UL LI {
   line-height:1.3;
   color:#6c7a89;
 }
-#projects P {
-  line-height:1.4;
-  margin:0.5em 2em;
+#projects IMG {
+  max-width:90%;
+  max-height:90%;
 }
-#projects A {
-  color:#87d37c;
+#projects .pure-img {
+  text-align:center;
+  margin-top:1.2em;
 }
-#projects A:hover {
-  border-bottom-color:#87d37c;
+
+.img-box {
+  width:210px;
+  height:210px;
+}
+.info-box {
+  cursor:auto;
+}
+.more-info-icon {
+  text-align:right;
+  padding:0.2em;
+}
+.project-info A {
+  color:#66bb6a;
+}
+.project-info A:hover {
+  background-color:#66bb6a;
+  color:#fefefe;
+}
+.project-info P {
+  line-height:1.5;
+  padding:0 0.5em;
+}
+.project-info .project-links {
+  padding:0 0.5em;
+}
+.project-border {
+  border:1px solid #66bb6a;
 }
 #project-filter {
-  margin-bottom:2em;
+  margin-bottom:3em;
 }
 #project-filter A {
   color:#6c7a89;
+  text-decoration:none;
 }
 #project-filter A:hover {
-  border-bottom:2px dotted #54cb41;
+  border-bottom:2px dotted #66bb6a;
 }
-#project-filter .active {
-  color:#87d37c;
-  font-weight:700;
+#project-filter A.active {
+  color:#66bb6a;
+  font-weight:800;
   border-bottom:0;
 }
 #project-filter A:hover.active {
@@ -63,48 +88,4 @@
 #project-filter LI {
   display:inline;
   padding:0 0.5em;
-}
-#project-listing SECTION {
-  cursor:pointer;
-}
-#project-listing .info-box {
-  cursor:auto;
-}
-#projects .more-info-icon {
-  text-align:right;
-  padding:0.2em;
-}
-#projects .pure-img {
-  text-align:center;
-  margin-top:1.2em;
-}
-#projects IMG {
-  max-width:90%;
-  max-height:90%;
-}
-#projects .img-box {
-  width:210px;
-  height:210px;
-}
-#projects .project-info P {
-  margin:1em 1.5em 0 1em;
-}
-#projects .project-info UL {
-  margin:1em 1.5em 0 1em;
-}
-#projects .project-info LI {
-  display:inline;
-  margin:0 1em 0 0;
-}
-#projects .project-info A {
-  text-decoration:none;
-}
-#projects .project-info A:hover {
-  background-color:#6c7a89;
-}
-#projects .placeholder {
-  margin-top:3em;
-}
-#projects .placeholder P {
-  margin-top:1.5em;
 }

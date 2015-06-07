@@ -4,31 +4,31 @@
 {% block title %}Kenny Ng :: Blog{% endblock %}
 
 {% block content %}
-  <div id="blog" class="last-section">
+  <div id="blog">
 
     <div class="blog-header">
       <h1>I am not a power blogger.</h1>
       <h3>But here are some stuff that I have written.</h3>
     </div>
 
-    <div id="blog-post-index">
+    <section>
     {% if error -%}
       <div class="placeholder">
-        <span class="fa fa-frown-o fa-5x"></span>
-          <p>My blog is unavailable at the moment.</p>
-          <p>Sorry about that. Please visit again at a later time.</p>
+        <span class="fa fa-meh-o fa-5x"></span>
+        <p>My blog is unavailable at the moment.<br />
+           Sorry about that. Please visit again at a later time.</p>
       </div>
     {% else %}
-      {%- if blog_posts|length < 1 -%}
+      {%- if posts|length < 1 -%}
       <div class="placeholder">
         <span class="fa fa-rss-square fa-5x"></span>
         <p>No blog posts have been added yet.</p>
         <p></p>
       </div>
       {% else %}
-      <ul class="post-list">
-        {%- for post in blog_posts -%}
-        <li id="blog-id-{{ post.id }}" class="post">
+      <ul class="blog-list">
+        {%- for post in posts -%}
+        <li id="post-id-{{ post.id }}" class="post">
           <a href="/blog/{{ post.id }}/{{ post.slugify|e }}">
             <div class="pure-g">
               <div class="post-title pure-u-1 pure-u-md-4-5 pure-u-lg-21-24">{{ post.title }}</div>
@@ -43,6 +43,6 @@
       </ul>
       {%- endif %}
     {%- endif %}
-    </div>
+    </section>
   </div>
 {% endblock %}

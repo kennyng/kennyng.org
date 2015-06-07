@@ -4,7 +4,7 @@
 {% block title %}Kenny Ng :: Projects{% endblock %}
 
 {% block content %}
-  <div id="projects" class="last-section">
+  <div id="projects">
     <div id="project-filter">
       <ul>
         <li><a href="projects" id="project-all" class="active">ALL</a></li> /
@@ -17,7 +17,7 @@
     <div id="project-listing">
     {% if error -%}
       <div class="placeholder">
-        <span class="fa fa-frown-o fa-5x"></span>
+        <span class="fa fa-meh-o fa-5x"></span>
           <p>My projects are unavailable at the moment. <br />
              Sorry about that. Please visit again at a later time.</p>
       </div>
@@ -31,10 +31,10 @@
       {% else %}
       {%- for project in projects -%}
       <section id="project-id-{{ project.id }}" class="{{ project.category }}">
-        <h3>{{ project.title }}</h3>
-        <h4><span class="fa fa-quote-left icon-green"></span>
+        <h2>{{ project.title }}</h2>
+        <h3><span class="fa fa-quote-left icon-green"></span>
           {{ project.tagline }}&hellip;
-        <span class="fa fa-quote-right icon-green"></span></h4>
+        <span class="fa fa-quote-right icon-green"></span></h3>
 
         <div class="info-box nonclickable hidden clearfix">
           <div class="pure-g">
@@ -47,17 +47,17 @@
               <p>
                 {{ project.description }}
               </p>
-              <ul>
+              <div class="project-links">
                 {% if project.url -%}
-                <li><a href="{{ project.url|e }}" rel="external" target="_blank">PROJECT</a></li>
+                <a class="pretty-btn project-border" href="{{ project.url|e }}" target="_blank">PROJECT</a>
                 {%- endif %}
-                {% if project.paper -%}
-                <li><a href="{{ project.paper|e }}" rel="external" target="_blank">PAPER</a></li>
+                {% if project.info -%}
+                <a class="pretty-btn project-border" href="{{ project.info|e }}" target="_blank">ABOUT</a>
                 {%- endif %}
                 {% if project.code -%}
-                <li><a href="{{ project.code|e }}" rel="external" target="_blank">CODE</a></li>
+                <a class="pretty-btn project-border" href="{{ project.code|e }}" target="_blank">CODE</a>
                 {%- endif %}
-              </ul>
+              </div>
             </div>
           </div>
         </div> <!-- end info-box -->
