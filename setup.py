@@ -3,7 +3,7 @@
 from setuptools import setup
 
 
-setup(name='kennyng.web',
+setup(name='kennyng.org',
       version='1.0',
       description='Personal website of Kenny Ng',
       author='Kenny Ng',

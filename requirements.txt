@@ -1,5 +1,5 @@
-# Package dependencies for 'kennyng.web'
-
+# Package dependencies
+--extra-index-url https://pypi.python.org/simple
 
 Flask==0.10.1
 # Required by Flask:
