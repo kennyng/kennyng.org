@@ -10,6 +10,16 @@
   border-bottom:6px double #1d1d1d;
   padding-bottom:5em;
 }
+.tag-filter {
+  text-align:center;
+  margin: 0.5em auto 1.5em;
+  color:#ab47bc;
+  opacity:0.68;
+}
+.tag-filter SPAN {
+  // text-decoration:underline dotted #1d1d1d;
+  color:#424242;
+}
 .blog-list {
   list-style:outside none none;
   padding:0;

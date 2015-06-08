@@ -86,12 +86,16 @@ def query_books(option):
 def blog():
     error = False
     try:
-        posts = Post.query.filter_by(is_published=True).order_by(Post.pub_date.desc()).all()
+        tag = request.args.get('tag', None)
+        if tag:
+            posts = Post.query.filter(Post.tags.any(name=tag)).order_by(Post.pub_date.desc()).all()
+        else:
+            posts = Post.query.filter_by(is_published=True).order_by(Post.pub_date.desc()).all()
     except exc.SQLAlchemyError:
         error = True
         posts = []
 
-    return render_template('blog_index.html', posts=posts, error=error)
+    return render_template('blog_index.html', posts=posts, tag=tag, error=error)
 
 
 @app.route('/blog/<int:post_id>/<slug>', strict_slashes=False)
