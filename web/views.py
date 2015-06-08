@@ -135,3 +135,9 @@ def get_filters_dict(selected):
         filters.append({'url': url_for('query_books', option='all'),
                         'name': 'ALL BOOKS'})
     return filters
+
+def init_db():
+    """Deletes and re-creates database tables."""
+
+    db.drop_all()
+    db.create_all()
