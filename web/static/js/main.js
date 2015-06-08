@@ -6,7 +6,7 @@ var _ = {
 };
 
 document.addEventListener('DOMContentLoaded', function() {
-  var menu = _.$('nav-menu-bar')
+  var menu = _.$('nav-menu-bar');
   var nav = _.$('site-nav');
 
   menu.addEventListener('click', function(e) {
