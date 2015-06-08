@@ -359,8 +359,7 @@ A[rel=external]:hover {
   font-style:italic;
 }
 #resume UL {
-  margin:0 0 1.5em 2.5em;
-  list-style-position:inside;
+  margin:0 0 1.5em 3em;
   list-style-type:square;
 }
 #resume UL LI {
