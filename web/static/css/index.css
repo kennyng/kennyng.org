@@ -1,23 +1,25 @@
-/* About Page */
-#about {
+
+
+/* Index CSS */
+#index {
   border-bottom: 1px solid #6c7a89;
 }
-#about SECTION {
+#index SECTION {
   margin-bottom:2em;
 }
-#about .subheader {
+#index .subheader {
   margin-left:4em;
   margin-bottom:0.5em;
   text-indent:-1em;
 }
-#about P {
+#index P {
   line-height:1.5;
   margin:0 0 0 6em;
   padding-left:1em;
   padding-right:1em;
   border-left: 1px solid #6c7a89;
 }
-#about UL {
+#index UL {
   line-height:1.5;
   margin:0 0 0 6em;
   padding-left:1em;
@@ -26,10 +28,10 @@
   list-style-position:inside;
   list-style-type:circle;
 }
-#about UL LI {
+#index UL LI {
   margin-left: 2em;
 }
-#about .fa-fw {
+#index .fa-fw {
   width:0.5em;
 }
 .fa.icon-red {
