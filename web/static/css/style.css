@@ -714,6 +714,12 @@ A[rel=external]:hover {
   #nav-menu-bar {
     display:block;
   }
+  #index .subheader {
+    margin-left:2em;
+  }
+  #index P, #index UL {
+    margin:0 0 0 3em;
+  }
   #blog .post-title {
     line-height:1.5;
   }
