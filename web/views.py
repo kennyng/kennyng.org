@@ -82,7 +82,7 @@ def query_books(option):
                             books=books, error=error)
 
 
-@app.route('/blog', methods=['GET'], strict_slashes=False)
+@app.route('/notes', methods=['GET'], strict_slashes=False)
 def blog():
     error = False
     try:
@@ -98,8 +98,8 @@ def blog():
     return render_template('blog_index.html', posts=posts, tag=tag, error=error)
 
 
-@app.route('/blog/<int:post_id>/<slug>', strict_slashes=False)
-def blog_post(post_id, slug):
+@app.route('/notes/<int:post_id>/<slug>', strict_slashes=False)
+def note_post(post_id, slug):
     try:
         post = Post.query.get_or_404(post_id)
     except exc.SQLAlchemyError:

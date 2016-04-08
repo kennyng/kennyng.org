@@ -1,20 +1,19 @@
 {% extends "base.html" %}
 {% set active_page = "blog" %}
 
-{% block title %}Kenny Ng :: Blog{% endblock %}
+{% block title %}Kenny Ng :: Notes{% endblock %}
 
 {% block content %}
   <div id="blog">
     <div class="blog-header">
-      <h1>Sometimes (rarely), I blog.</h1>
-      <h3>Here are some stuff that I have written.</h3>
+      <h2>Here are some stuff that I have written (and saved).</h2>
     </div>
 
     <section>
     {% if error -%}
       <div class="placeholder">
         <span class="fa fa-meh-o fa-5x"></span>
-        <p>My blog is unavailable at the moment.<br />
+        <p>My notes are unavailable at the moment.<br />
            Sorry about that. Please visit again at a later time.</p>
       </div>
     {% else %}
@@ -22,9 +21,9 @@
       <div class="placeholder">
         <span class="fa fa-newspaper-o fa-5x"></span>
         {%- if tag -%}
-        <p> No blog posts tagged &lt;{{ tag }}&gt; found.</p>
+        <p> No notes tagged &lt;{{ tag }}&gt; found.</p>
         {% else %}
-        <p>No blog posts have been added yet.</p>
+        <p>No notes have been added yet.</p>
         {%- endif -%}
       </div>
       {% else %}
