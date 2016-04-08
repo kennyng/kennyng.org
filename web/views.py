@@ -39,7 +39,7 @@ def projects():
 
     return render_template('projects.html', projects=projects, error=error)
 
-
+"""
 @app.route('/bookshelf', strict_slashes=False)
 def bookshelf():
     error = False
@@ -80,7 +80,7 @@ def query_books(option):
     filters = get_filters_dict(selected)
     return render_template('bookshelf.html', selected=selected, filters=filters,
                             books=books, error=error)
-
+"""
 
 @app.route('/notes', methods=['GET'], strict_slashes=False)
 def notes():
