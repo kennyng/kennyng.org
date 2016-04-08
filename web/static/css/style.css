@@ -762,7 +762,7 @@ A[rel=external]:hover {
   #not-found .megasize {
     font-size:4em;
   }
-  $not-found .bigsize {
+  #not-found .bigsize {
     font-size:3em;
   }
   #index {

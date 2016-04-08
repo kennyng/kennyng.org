@@ -27,10 +27,10 @@
   #index P, #index UL {
     margin:0 0 0 3em;
   }
-  #blog .post-title {
+  #notes .post-title {
     line-height:1.5;
   }
-  #blog .post-date {
+  #notes .post-date {
     line-height:1.5;
     margin-bottom:1em;
   }
@@ -91,7 +91,7 @@
     max-width:80%;
     margin:auto;
   }
-  #blog {
+  #notes {
     max-width:85%;
     margin:auto;
   }
