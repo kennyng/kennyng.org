@@ -221,14 +221,14 @@ A[rel=external]:hover {
 #nav-bookshelf .active{
   color:#f64747;
 }
-#nav-blog A:hover  {
+#nav-notes A:hover  {
   border-bottom:2px solid #ab47bc;
 }
-#nav-blog A:hover .fa.icon-peg:before {
+#nav-notes A:hover .fa.icon-peg:before {
   color:#ab47bc;
   content:'\f111';
 }
-#nav-blog .active{
+#nav-notes .active{
   color:#ab47bc;
 }
 #nav-menu-bar {
@@ -559,14 +559,14 @@ A[rel=external]:hover {
 }
 
 
-/* Blog CSS */
-#blog SECTION {
+/* Notes CSS */
+#notes SECTION {
   margin-bottom:2em;
 }
-#blog H1 {
+#notes H1 {
   margin-bottom:0.5em;
 }
-.blog-header {
+.notes-header {
   text-align:center;
   border-bottom:6px double #1d1d1d;
   padding-bottom:5em;
@@ -580,7 +580,7 @@ A[rel=external]:hover {
 .tag-filter SPAN {
   color:#424242;
 }
-.blog-list {
+.notes-list {
   list-style:outside none none;
   padding:0;
 }
@@ -723,10 +723,10 @@ A[rel=external]:hover {
   #index P, #index UL {
     margin:0 0 0 3em;
   }
-  #blog .post-title {
+  #notes .post-title {
     line-height:1.5;
   }
-  #blog .post-date {
+  #notes .post-date {
     line-height:1.5;
     margin-bottom:1em;
   }
@@ -787,7 +787,7 @@ A[rel=external]:hover {
     max-width:80%;
     margin:auto;
   }
-  #blog {
+  #notes {
     max-width:85%;
     margin:auto;
   }

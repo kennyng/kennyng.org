@@ -1,13 +1,13 @@
 
 
-/* Blog CSS */
-#blog SECTION {
+/* Notes CSS */
+#notes SECTION {
   margin-bottom:2em;
 }
-#blog H1 {
+#notes H1 {
   margin-bottom:0.5em;
 }
-.blog-header {
+.notes-header {
   text-align:center;
   border-bottom:6px double #1d1d1d;
   padding-bottom:5em;
@@ -21,7 +21,7 @@
 .tag-filter SPAN {
   color:#424242;
 }
-.blog-list {
+.notes-list {
   list-style:outside none none;
   padding:0;
 }

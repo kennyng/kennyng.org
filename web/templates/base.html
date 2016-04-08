@@ -36,13 +36,13 @@
             (url_for('resume'), 'resume', 'nav-resume', 'Résumé'),
             (url_for('projects'), 'projects', 'nav-projects', 'Projects'),
             (url_for('bookshelf'), 'bookshelf', 'nav-bookshelf', 'Bookshelf'),
-            (url_for('blog'), 'blog', 'nav-blog', 'Notes'),
+            (url_for('notes'), 'notes', 'nav-notes', 'Notes'),
           ] -%}
           {% set active_page = active_page|default('index') -%}
 
           <ul id="navigation">
             {% for href, page, spanid, name in navigation_bar -%}
-              <li {% if page == 'blog' %}class="final"{% endif %}>
+              <li {% if page == 'notes' %}class="final"{% endif %}>
                 <span id="{{ spanid|e }}">
                   <a href="{{ href|e }}" {% if page == active_page %}class="active"{% endif %}>
                     <span class="fa fa-square-o icon-peg"></span>
@@ -75,7 +75,7 @@
 
     <footer role="contentinfo" id="site-footer">
       <p>
-        <small>&copy; <time datetime="2015">2015</time> Kenny Ng</small>
+        <small>&copy; <time datetime="2016">2016</time> Kenny Ng</small>
       </p>
     </footer>
   </div>

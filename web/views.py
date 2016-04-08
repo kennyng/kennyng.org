@@ -83,7 +83,7 @@ def query_books(option):
 
 
 @app.route('/notes', methods=['GET'], strict_slashes=False)
-def blog():
+def notes():
     error = False
     try:
         tag = request.args.get('tag', None)
@@ -95,17 +95,17 @@ def blog():
         error = True
         posts = []
 
-    return render_template('blog_index.html', posts=posts, tag=tag, error=error)
+    return render_template('notes_index.html', posts=posts, tag=tag, error=error)
 
 
 @app.route('/notes/<int:post_id>/<slug>', strict_slashes=False)
-def note_post(post_id, slug):
+def notes_post(post_id, slug):
     try:
         post = Post.query.get_or_404(post_id)
     except exc.SQLAlchemyError:
         abort(404)
 
-    return render_template('blog_post.html', post=post)
+    return render_template('notes_post.html', post=post)
 
 
 #-------------------------------------------------------------------

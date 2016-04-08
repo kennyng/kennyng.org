@@ -161,8 +161,8 @@ admin = Admin(app, name='Kenny Ng :: Admin',
 # Add administrative model views
 admin.add_view(BookView(Book, db.session))
 admin.add_view(ProjectView(Project, db.session))
-admin.add_view(PostView(Post, db.session, name='Blog: Post', endpoint='blog'))
-admin.add_view(AuthModelView(Tag, db.session, name='Blog: Tag'))
+admin.add_view(PostView(Post, db.session, name='Note: Post', endpoint='notes'))
+admin.add_view(AuthModelView(Tag, db.session, name='Note: Tag'))
 
 path = os.path.join(os.path.dirname(__file__), 'static')
 admin.add_view(CustomFileAdmin(path, '/static/', name='Static Assets', endpoint='static-assets'))
