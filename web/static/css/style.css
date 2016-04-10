@@ -326,6 +326,18 @@ A[rel=external]:hover {
 #icon-email:hover {
   color:#db4437;
 }
+#icon-goodreads:hover {
+  color:#8f4314;
+}
+#icon-goodreads .fa-stack {
+  line-height:inherit!important;
+}
+.icon-gr-style {
+  font-family:helvetica;
+  font-size:0.8em;
+  font-weight:100;
+  padding-top:0.15em;
+}
 
 
 /* Resume CSS */
@@ -475,7 +487,7 @@ A[rel=external]:hover {
 .notes-header {
   text-align:center;
   border-bottom:6px double #1d1d1d;
-  padding-bottom:5em;
+  padding-bottom:3em;
 }
 .tag-filter {
   text-align:center;
@@ -635,6 +647,12 @@ A[rel=external]:hover {
   #notes .post-date {
     line-height:1.5;
     margin-bottom:1em;
+  }
+  #notes .notes-header H1 {
+    font-size:2em;
+  }
+  .placeholder {
+    font-size:1.5em;
   }
 }
 @media only screen and (min-width:40.063em) {
