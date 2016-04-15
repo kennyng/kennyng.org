@@ -33,20 +33,25 @@
       <section id="project-id-{{ project.id }}" class="{{ project.category }}">
         <h2>{{ project.title }}</h2>
         <h3><span class="fa fa-quote-left icon-green"></span>
-          {{ project.tagline }}&hellip;
+          {{ project.tagline }}
         <span class="fa fa-quote-right icon-green"></span></h3>
 
         <div class="info-box nonclickable hidden clearfix">
+
           <div class="pure-g">
+            {% if project.image %}
             <div class="pure-u-1 pure-u-md-8-24 pure-img">
               <span class="img-box">
                 <img src="{{ project.image|e }}" alt="{{ project.title }}"></img>
               </span>
             </div>
             <div class="pure-u-1 pure-u-md-16-24 project-info">
-              <p>
-                {{ project.description }}
-              </p>
+              {{ project.description|markdown }}
+            {% else %}
+            <div class="pure-u-1 pure-u-md-22-24 project-info project-info-noimg">
+              {{ project.description|markdown }}
+            {% endif %}
+
               <div class="project-links">
                 {% if project.url -%}
                 <a class="pretty-btn project-border" href="{{ project.url|e }}" target="_blank">PROJECT</a>
@@ -60,6 +65,7 @@
               </div>
             </div>
           </div>
+
         </div> <!-- end info-box -->
 
         <div class="more-info-icon"><span class="fa fa-chevron-down icon-green"></span>
