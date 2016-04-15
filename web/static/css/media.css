@@ -66,6 +66,9 @@
     padding-bottom:0.5em;
     margin:-3em auto auto;
   }
+  #contact-repos {
+    margin:0;
+  }
   #not-found .ultrasize {
     font-size:18em;
   }
@@ -113,6 +116,9 @@
   }
   .project-info P, .project-info .project-links {
     padding-left:0;
+  }
+  .project-info-noimg {
+    padding-left: 2em;
   }
 }
 @media print {

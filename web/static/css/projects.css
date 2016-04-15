@@ -59,6 +59,9 @@
 .project-info .project-links {
   padding:0 0.5em;
 }
+.project-info-noimg {
+  padding-left: 0.5em;
+}
 .project-border {
   border:1px solid #66bb6a;
 }

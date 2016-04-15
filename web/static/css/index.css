@@ -47,11 +47,10 @@
   color:#1e8bc3;
 }
 #contact-repos {
-  margin-top:1.5em;
-  margin-bottom:1.5em;
+  margin-top:2em;
 }
 #contact-repos .fa-fw {
-  width: 2em;
+  width:2em;
 }
 #contact-repos A,A:hover {
   border-bottom:0;

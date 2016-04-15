@@ -305,11 +305,10 @@ A[rel=external]:hover {
   color:#1e8bc3;
 }
 #contact-repos {
-  margin-top:1.5em;
-  margin-bottom:1.5em;
+  margin-top:2em;
 }
 #contact-repos .fa-fw {
-  width: 2em;
+  width:2em;
 }
 #contact-repos A,A:hover {
   border-bottom:0;
@@ -443,6 +442,9 @@ A[rel=external]:hover {
 }
 .project-info .project-links {
   padding:0 0.5em;
+}
+.project-info-noimg {
+  padding-left: 0.5em;
 }
 .project-border {
   border:1px solid #66bb6a;
@@ -615,6 +617,11 @@ A[rel=external]:hover {
 
 
 /* Media CSS */
+@media only screen and (max-width:356px) {
+  #icon-goodreads .fa-stack {
+    height:inherit;
+  }
+}
 @media only screen and (max-width:420px) {
   #site-header-name {
     float:left;
@@ -680,6 +687,9 @@ A[rel=external]:hover {
     padding-bottom:0.5em;
     margin:-3em auto auto;
   }
+  #contact-repos {
+    margin:0;
+  }
   #not-found .ultrasize {
     font-size:18em;
   }
@@ -723,6 +733,9 @@ A[rel=external]:hover {
   }
   .project-info P, .project-info .project-links {
     padding-left:0;
+  }
+  .project-info-noimg {
+    padding-left: 2em;
   }
 }
 @media print {
