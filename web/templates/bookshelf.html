@@ -45,7 +45,7 @@
         {% else %}
           {%- for book in books -%}
             <div class="book">
-              <a href="{{ book.url|e }}" rel="external" target="_blank">
+              <a href="{{ book.url|e }}" rel="external">
               <img src="{{ book.image|e }}" alt="{{ book.title }}" width="185" height="280">
               </a>
             </div>

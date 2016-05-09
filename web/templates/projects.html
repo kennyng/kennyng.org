@@ -54,13 +54,13 @@
 
               <div class="project-links">
                 {% if project.url -%}
-                <a class="pretty-btn project-border" href="{{ project.url|e }}" target="_blank">PROJECT</a>
+                <a class="pretty-btn project-border" href="{{ project.url|e }}">PROJECT</a>
                 {%- endif %}
                 {% if project.info -%}
-                <a class="pretty-btn project-border" href="{{ project.info|e }}" target="_blank">ABOUT</a>
+                <a class="pretty-btn project-border" href="{{ project.info|e }}">ABOUT</a>
                 {%- endif %}
                 {% if project.code -%}
-                <a class="pretty-btn project-border" href="{{ project.code|e }}" target="_blank">CODE</a>
+                <a class="pretty-btn project-border" href="{{ project.code|e }}">CODE</a>
                 {%- endif %}
               </div>
             </div>

@@ -44,11 +44,11 @@
     <li>
       <h2>
         <span class="id">{{ book.id }}</span>
-        <a href="{{ book.url|safe }}" class="title" rel="external" target="_blank">
+        <a href="{{ book.url|safe }}" class="title" rel="external">
           {{ book.title }}</a>
         <span class="year">[{{ book.year }}]</span>
       </h2>
-      <p>IMAGE: <a href="{{ book.image|safe }}" class="image" rel="external" target="_blank">
+      <p>IMAGE: <a href="{{ book.image|safe }}" class="image" rel="external">
         {{ book.image|safe }}</a>
       </p>
     </li>
