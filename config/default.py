@@ -15,7 +15,7 @@ PASSWORD = os.environ.get('FLASK_PASSWORD', ('pbkdf2:sha1:1000$6b0JlqVL$2779dc6'
                                              '5e4ac3dcc016b6ffdd97cb69a431ca6c7'))
 
 HOST_NAME = os.environ.get('OPENSHIFT_APP_DNS', 'localhost')
-APP_NAME = os.environ.get('OPENSHIFT_APP_NAME', 'web')
+APP_NAME = os.environ.get('OPENSHIFT_APP_NAME', 'homepage')
 IP = os.environ.get('OPENSHIFT_PYTHON_IP', '127.0.0.1')
 PORT = int(os.environ.get('OPENSHIFT_PYTHON_PORT', 8080))
 

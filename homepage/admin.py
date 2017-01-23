@@ -9,8 +9,8 @@ from wtforms.validators import InputRequired, ValidationError
 from werkzeug.security import generate_password_hash, check_password_hash
 from jinja2 import Markup
 
-from web import app, db
-from web.models import Book, Project, Post, Tag
+from homepage import app, db
+from homepage.models import Project, Link, Tag
 
 
 def validate_login(form, field):
@@ -21,15 +21,17 @@ def validate_login(form, field):
         if not check_password_hash(app.config['PASSWORD'], pw):
             raise ValidationError('Invalid username or password.')
 
-class LoginForm(Form):
-    username = StringField('Username', [InputRequired("<Username> field is required.")])
-    password = PasswordField('Password', [InputRequired("<Password> field is required."),
-                                          validate_login])
 
 def flash_errors(form):
     for field, errors in form.errors.items():
         for error in errors:
             flash(error, 'error')
+
+
+class LoginForm(Form):
+    username = StringField('Username', [InputRequired("<Username> field is required.")])
+    password = PasswordField('Password', [InputRequired("<Password> field is required."),
+                                          validate_login])
 
 
 class AuthIndexView(AdminIndexView):
@@ -68,73 +70,40 @@ class AuthModelView(ModelView):
             return redirect(url_for('admin.login', next=request.url))
 
 
-class BookView(AuthModelView):
-    def _list_format_thumbnail(view, context, model, name):
-        if not model.image:
-            return ''
-        return Markup('<img src="{}" width="185" height="280">'.format(model.image))
-
+class LinkView(AuthModelView):
     def _list_format_link(view, context, model, name):
         if not getattr(model, name):
             return ''
         return Markup('<a href="{url}" rel="external" target="_blank">{url}</a>'.format(
             url=getattr(model, name)))
 
-    column_formatters = dict(image=_list_format_thumbnail,
-                             url=_list_format_link)
-    column_labels = dict(image='Cover Image', url='URL')
-    column_sortable_list = ('year', 'title')
-    column_searchable_list = ('year', 'title')
-
-    form_args = dict(url=dict(label='Book URL'),
-                     image=dict(label='Image URL'))
+    column_formatters = dict(url=_list_format_link)
+    column_labels = dict(title='Title', url='URL')
 
 
 class ProjectView(AuthModelView):
-    def _list_format_thumbnail(view, context, model, name):
-        if not model.image:
-            return ''
-        return Markup(('<a href="{url}" target="_blank">'
-                       '<img src="{url}" width="180">'
-                       '</a>').format(url=model.image))
-
     def _list_format_links(view, context, model, name):
-        project, info, code  = '', '', ''
-        if model.url:
-            project = model.url
-        if model.info:
-            info = model.info
-        if model.code:
-            code = model.code
-        return Markup(
-                ('<p><strong>PROJECT: </strong>\n'
-                 '<a href="{project}" rel="external" target="_blank">{project}</a></p>\n'
-                 '<p><strong>ABOUT: </strong>\n'
-                 '<a href="{info}" rel="external" target="_blank">{info}</a></p>\n'
-                 '<p><strong>CODE: </strong>\n'
-                 '<a href="{code}" rel="external" target="_blank">{code}</a></p>\n'
-                ).format(project=project, info=info, code=code))
+        html = ('<h3>MAIN: </h3>\n'
+                '<a href="{}" rel="external" target="_blank">{}</a></p>\n'
+                ).format(model.url)
 
-    column_formatters = dict(image=_list_format_thumbnail,
-                             url=_list_format_links)
-    column_list = ('category', 'title', 'url', 'image')
-    column_labels = dict(url='URL(s)')
-    column_sortable_list = ('category', 'title')
-    column_searchable_list = ('category', 'title')
+        if len(model.links) > 0:
+            html.append('<hr>\n<h3>SECONDARY: </h3>\n')
+        for link in model.links:
+            url_str = '<a href="{}" rel="external" target="_blank">{}</a></p>\n'.format(link)
+            html.append(url_str)
 
-    form_args = dict(url=dict(label='Project/Demo URL'),
-                     paper=dict(label='Info URL'),
-                     code=dict(label='Code Repo URL'),
-                     image=dict(label='Image URL'))
+        return Markup(html)
 
-
-class PostView(AuthModelView):
     column_display_pk = True
-    column_list = ('id', 'title', 'pub_date', 'tags', 'is_published')
-    column_labels = dict(id='id', pub_date='Published Date', tags='Tag(s)',
-                         is_published='Published?')
-    column_sortable_list = ('id', 'title', 'pub_date', 'is_published')
-    column_searchable_list = ('id', 'title', 'pub_date')
+    column_formatters = dict(url=_list_format_links)
+    column_list = ('id', 'title', 'date', 'url', 'tags', 'visible')
+    column_labels = dict(id='#', title='Project Name', url='URL(s)',
+                            tags='Tag(s)', visible='Show?')
+    column_sortable_list = ('id', 'title', 'date', 'visible')
+    column_searchable_list = ('title', 'date')
+
+    form_args = dict(url=dict(label='Project URL'))
 
 
 class CustomFileAdmin(FileAdmin):
@@ -152,6 +121,8 @@ class CustomFileAdmin(FileAdmin):
     can_rename = False
 
 
+
+
 # Create Admin class instance and override defaults
 admin = Admin(app, name='Kenny Ng :: Admin',
               index_view=AuthIndexView(),
@@ -159,10 +130,9 @@ admin = Admin(app, name='Kenny Ng :: Admin',
               template_mode='bootstrap3')
 
 # Add administrative model views
-admin.add_view(BookView(Book, db.session))
-admin.add_view(ProjectView(Project, db.session))
-admin.add_view(PostView(Post, db.session, name='Note: Post', endpoint='notes'))
-admin.add_view(AuthModelView(Tag, db.session, name='Note: Tag'))
+admin.add_view(ProjectView(Project, db.session, name='Projects'))
+admin.add_view(LinkView(Link, db.session, name='Project: Links'))
+admin.add_view(AuthModelView(Tag, db.session, name='Project: Tags'))
 
 path = os.path.join(os.path.dirname(__file__), 'static')
 admin.add_view(CustomFileAdmin(path, '/static/', name='Static Assets', endpoint='static-assets'))

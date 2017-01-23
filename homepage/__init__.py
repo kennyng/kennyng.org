@@ -33,6 +33,6 @@ db = SQLAlchemy(app)
 Misaka(app)
 
 # Import main views module (main pages)
-from web import views
+from homepage import views
 # Import admin views
-from web import admin
+from homepage import admin
