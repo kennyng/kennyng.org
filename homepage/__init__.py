@@ -5,8 +5,8 @@
 
 """
 from flask import Flask
-from flask.ext.sqlalchemy import SQLAlchemy
-from flask.ext.misaka import Misaka
+from flask_sqlalchemy import SQLAlchemy
+from flask_misaka import Misaka
 
 # Create application object
 app = Flask(__name__, instance_relative_config=True)
@@ -20,6 +20,9 @@ app.config.from_pyfile('instance.cfg', silent=True)
 # Load settings specified by APP_CONFIG_FILE environment variable
 # Variables defined here will override default configurations
 # app.config.from_envvar('APP_CONFIG_FILE', silent=True)
+
+# Disable Flask-SQLAlchemy event notification system.
+app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 
 # Explicitly add debugger middleware
 if app.debug:

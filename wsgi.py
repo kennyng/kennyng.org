@@ -21,7 +21,7 @@ except IOError:
     pass
 
 # Provide application to be served by server.
-from web import app as application
+from homepage import app as application
 
 
 # For testing only (run application locally).
