@@ -15,7 +15,7 @@ from homepage.models import Project, Link, Tag
 
 @app.route('/')
 def home():
-    return render_template('index.html')
+    return render_template('home.html')
 
 
 @app.route('/projects', strict_slashes=False)

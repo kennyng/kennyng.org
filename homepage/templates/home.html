@@ -1,68 +1,57 @@
 {% extends "base.html" %}
 
-{% block content %}
-  <h1>Hi, I'm Kenny.</h1>
+{% block page %}
+<body class="index">
+	<main role="main">
+		<section id="home">
+			<div class="container">
+				<div class="ten columns offset-by-one align-center">
+					<h1 class="name-heading mb0">Kenny Ng</h1>
+					<hr>
 
-  <div id="index">
-    <section>
-      <h2 class="subheader">
-        <span class="fa fa-heart-o fa-fw icon-red"></span>
-        I like learning about stuff.
-      </h2>
-      <p>
-        I am a student at Stanford University
-        majoring in Mathematical &amp; Computational Science. My studies include
-        courses in applied mathematics, statistics, and computer science.
-        Outside of coursework, I enjoy reading books, learning languages,
-        and taking MOOCs on various topics.
-      </p>
-    </section>
-    <section>
-      <h2 class="subheader">
-        <span class="fa fa-keyboard-o fa-fw icon-green"></span>
-        I write code and play with data.
-      </h2>
-      <p>My primary interests include:</p>
-      <ul>
-        <li>
-          creating intelligent applications that leverage machine learning and
-            data mining,
-        </li>
-        <li>building robust and scalable distributed systems, and</li>
-        <li>
-          discovering insights through statistical inference and data visualizations.
-        </li>
-      </ul>
-      <p>
-        However, I am always eager to learn and explore new topics,
-          technologies, and tools.
-      </p>
-    </section>
-    <section>
-      <h2 class="subheader">
-        <span class="fa fa-futbol-o fa-fw icon-blue"></span>
-        I am a Judoka, an Arsenal supporter, and an amateur chef.
-      </h2>
-      <p>Judoka: someone who practices judo (a martial art and combat sport).</p>
-      <p>Arsenal: by far the greatest [football] team the world has ever seen.</p>
-      <p>Cooking: follow my culinary journey
-        <a href="https://www.instagram.com/iron_chef_kenny/" class="social-handle"
-          rel="external">@iron_chef_kenny</a>.</p>
-    </section>
-  </div>
+					<div class="about-list">
+						<ul class="fa-ul">
+							<li><span class="fa fa-graduation-cap fa-li fa-lg"></span>
+								Studied
+								<a href="https://mcs.stanford.edu/overview" rel="external" target="_blank">
+									Mathematical &amp; Computational Science</a>
+								@Stanford.
+							</li>
+							<li><span class="fa fa-keyboard-o fa-li fa-lg color-green"></span>
+								Previously: software engineering
+								<a href="http://www.practicefusion.com" rel="external" target="_blank">
+									@practicefusion</a> and
+								<a href="https://mobile.linkedin.com/pulse" rel="external" target="_blank">
+									@Pulse</a>.
+							</li>
+							<li><span class="fa fa-heart fa-li fa-lg color-red"></span>
+								Judoka, Arsenal FC supporter &amp; amateur chef
+								(<a href="https://www.instagram.com/iron_chef_kenny" rel="external" target="_blank">
+									@iron_chef_kenny</a>).
+							</li>
+						</ul>
+					</div>
 
-  <div id="contact-repos" class="center">
-    <a href="https://github.com/kennyng" id="icon-github" rel="external">
-        <span class="fa fa-github fa-5x fa-fw"></span></a>
-    <a href="https://bitbucket.org/kennyng" id="icon-bitbucket" rel="external">
-        <span class="fa fa-bitbucket fa-5x fa-fw"></span></a>
-    <a href="https://www.goodreads.com/review/list/54734195-kenny-ng?shelf=currently-reading"
-      id="icon-goodreads" rel="external">
-        <span class="fa-stack fa-5x fa-fw">
-          <i class="fa fa-square fa-stack-4x"></i>
-          <span class="fa-stack-1x fa-inverse icon-gr-style">g</span>
-        </span></a>
-    <a href="mailto:hello@kennyng.org" id="icon-email" rel="external">
-        <span class="fa fa-envelope-o fa-5x fa-fw"></span></a>
-  </div>
+					<hr>
+
+					<div class="link-icons">
+						<div class="link-container">
+								<a href="mailto:hello@kennyng.org" id="contact-link" rel="external">
+									<span class="fa fa-envelope-o fa-3x fa-fw"></span>
+									<span class="link-label">contact</span>
+								</a>
+						</div>
+						<div class="link-container">
+							<a href="{{ url_for('projects') }}" id="projects-link">
+								<span class="fa fa-code fa-3x fa-fw"></span>
+								<span class="link-label">projects</span>
+							</a>
+						</div>
+					</div>
+
+				</div>
+			</div>
+		</section>
+	</main>
+</body>
 {% endblock %}

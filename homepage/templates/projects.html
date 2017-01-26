@@ -1,83 +1,108 @@
 {% extends "base.html" %}
-{% set active_page = "projects" %}
 
-{% block title %}Kenny Ng :: Projects{% endblock %}
+{% block title %}Kenny Ng: ~/Projects{% endblock %}
 
-{% block content %}
-  <div id="projects">
-    <div id="project-filter">
-      <ul>
-        <li><a href="projects" id="project-all" class="active">ALL</a></li> /
-        <li><a href="projects/personal" id="project-personal">PERSONAL</a></li> /
-        <li><a href="projects/school" id="project-school">SCHOOL</a></li> /
-        <li><a href="projects/work" id="project-work">WORK</a></li>
-      </ul>
-    </div>
+{% block page %}
+<body>
+	<header role="banner">
+		<div class="container">
+			<nav role="navigation" class="navbar">
+				<a href="{{ url_for('home') }}">
+					<span class="fa fa-chevron-left fa-fw"></span>
+					Kenny Ng
+				</a>
+			</nav>
+		</div>
+	</header>
 
-    <div id="project-listing">
-    {% if error -%}
-      <div class="placeholder">
+	<main role="main">
+    <section id="projects">
+			<div class="container">
+
+				<h2 class="projects-heading">Projects</h2>
+				<hr>
+
+				<ul class="fa-ul">
+					<li class="project-item">
+						<h6 class="project-title">
+							<a href="#" target="_blank">
+								<span class="fa-li fa fa-code"></span>
+								ProjectName20
+							</a>
+						</h6>
+						<p class="project-description">
+							Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+							Morbi eu consequat lacus, sit amet aliquam nibh. Cras sodales, mi et.
+						</p>
+					</li>
+
+					<li class="project-item">
+						<h6 class="project-title">
+							<a href="#" target="_blank">
+								<span class="fa-li fa fa-code"></span>
+								ProjectName40
+							</a>
+						</h6>
+						<p class="project-description">
+							Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+							Morbi eu consequat lacus, sit amet aliquam nibh. Cras sodales, mi et.
+							Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+							Morbi eu consequat lacus, sit amet aliquam nibh. Cras sodales, mi et.
+						</p>
+					</li>
+
+					<li class="project-item">
+						<h6 class="project-title">
+							<a href="#" target="_blank">
+								<span class="fa-li fa fa-code"></span>
+								ProjectName60
+							</a>
+						</h6>
+						<p class="project-description">
+							Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+							Morbi eu consequat lacus, sit amet aliquam nibh. Cras sodales, mi et.
+							Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+							Morbi eu consequat lacus, sit amet aliquam nibh. Cras sodales, mi et.
+							Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+							Morbi eu consequat lacus, sit amet aliquam nibh. Cras sodales, mi et.
+						</p>
+					</li>
+				</ul>
+
+			</div>
+		</section>
+
+
+
+
+
+			<!--
+      {% if error -%}
+      <div class="message">
         <span class="fa fa-meh-o fa-5x"></span>
-          <p>My projects are unavailable at the moment. <br />
+        <p>My projects are unavailable at the moment. <br />
              Sorry about that. Please visit again at a later time.</p>
       </div>
-    {% else %}
-      {%- if projects|length < 1 -%}
-      <div class="placeholder">
-        <span class="fa fa-file-code-o fa-5x"></span>
-        <p>No projects have been added yet.</p>
-        <p></p>
-      </div>
       {% else %}
-      {%- for project in projects -%}
-      <section id="project-id-{{ project.id }}" class="{{ project.category }}">
-        <h2>{{ project.title }}</h2>
-        <h3><span class="fa fa-quote-left icon-green"></span>
-          {{ project.tagline }}
-        <span class="fa fa-quote-right icon-green"></span></h3>
-
-        <div class="info-box nonclickable hidden clearfix">
-
-          <div class="pure-g">
-            {% if project.image %}
-            <div class="pure-u-1 pure-u-md-8-24 pure-img">
-              <span class="img-box">
-                <img src="{{ project.image|e }}" alt="{{ project.title }}"></img>
-              </span>
-            </div>
-            <div class="pure-u-1 pure-u-md-16-24 project-info">
-              {{ project.description|markdown }}
-            {% else %}
-            <div class="pure-u-1 pure-u-md-22-24 project-info project-info-noimg">
-              {{ project.description|markdown }}
-            {% endif %}
-
-              <div class="project-links">
-                {% if project.url -%}
-                <a class="pretty-btn project-border" href="{{ project.url|e }}">PROJECT</a>
-                {%- endif %}
-                {% if project.info -%}
-                <a class="pretty-btn project-border" href="{{ project.info|e }}">ABOUT</a>
-                {%- endif %}
-                {% if project.code -%}
-                <a class="pretty-btn project-border" href="{{ project.code|e }}">CODE</a>
-                {%- endif %}
-              </div>
-            </div>
-          </div>
-
-        </div> <!-- end info-box -->
-
-        <div class="more-info-icon"><span class="fa fa-chevron-down icon-green"></span>
-          <span class="fa fa-chevron-up icon-green hidden"></span></div>
-      </section>
-      {%- endfor %}
+        {%- if projects|length < 1 -%}
+        <div class="message">
+          <span class="fa fa-file-code-o fa-5x"></span>
+          <p>No projects have been added yet.</p>
+        </div>
+        {% else %}
+				{%- for project in projects -%}
+        <section class="project-item">
+					<h3 class="h2 mb0">
+						<a href="{{ project.url|e }}" target="_blank">
+							<span class="fa fa-external-link fa-fw"></span>{{ project.title|e }}
+            </a>
+          </h3>
+          <p>{{ project.description|markdown }}</p>
+        </section>
+				{%- endfor %}
+        {%- endif %}
       {%- endif %}
-    {%- endif %}
-    </div>
-  </div>
-{% endblock %}
-
-{% block scripts %}
-  <script src="{{ url_for('static', filename='js/projects.js') }}"></script>
+			-->
+	</main>
+</body>
 {% endblock %}
