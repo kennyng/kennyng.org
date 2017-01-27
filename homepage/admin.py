@@ -70,6 +70,33 @@ class AuthModelView(ModelView):
             return redirect(url_for('admin.login', next=request.url))
 
 
+class ProjectView(AuthModelView):
+    def _list_format_links(view, context, model, name):
+        html = ('<a href="{url}" rel="external" target="_blank">{url}</a>'
+                ).format(url=model.url)
+
+        if len(model.links) > 0:
+            html += '<h6>Additional: </h6>'
+        for link in model.links:
+            url_str = '<a href="{url}" rel="external" target="_blank">{url}</a><br>'.format(url=link.url)
+            html += url_str
+
+        return Markup(html)
+
+    def _list_format_date(view, context, model, name):
+        return model.date.strftime('%Y-%m')
+
+    column_display_pk = True
+    column_formatters = dict(url=_list_format_links, date=_list_format_date)
+    column_list = ('id', 'title', 'date', 'url', 'tags', 'visible')
+    column_labels = dict(id='#', title='Project Name', url='URL(s)',
+                            tags='Tag(s)', visible='Show?')
+    column_sortable_list = ('id', 'title', 'date', 'visible')
+    column_searchable_list = ('title', 'date')
+
+    form_args = dict(url=dict(label='Project URL'))
+
+
 class LinkView(AuthModelView):
     def _list_format_link(view, context, model, name):
         if not getattr(model, name):
@@ -79,31 +106,6 @@ class LinkView(AuthModelView):
 
     column_formatters = dict(url=_list_format_link)
     column_labels = dict(title='Title', url='URL')
-
-
-class ProjectView(AuthModelView):
-    def _list_format_links(view, context, model, name):
-        html = ('<h3>MAIN: </h3>\n'
-                '<a href="{}" rel="external" target="_blank">{}</a></p>\n'
-                ).format(model.url)
-
-        if len(model.links) > 0:
-            html.append('<hr>\n<h3>SECONDARY: </h3>\n')
-        for link in model.links:
-            url_str = '<a href="{}" rel="external" target="_blank">{}</a></p>\n'.format(link)
-            html.append(url_str)
-
-        return Markup(html)
-
-    column_display_pk = True
-    column_formatters = dict(url=_list_format_links)
-    column_list = ('id', 'title', 'date', 'url', 'tags', 'visible')
-    column_labels = dict(id='#', title='Project Name', url='URL(s)',
-                            tags='Tag(s)', visible='Show?')
-    column_sortable_list = ('id', 'title', 'date', 'visible')
-    column_searchable_list = ('title', 'date')
-
-    form_args = dict(url=dict(label='Project URL'))
 
 
 class CustomFileAdmin(FileAdmin):

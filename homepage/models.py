@@ -22,7 +22,7 @@ class Project(db.Model):
     tag_id = db.Column(db.Integer, db.ForeignKey('tag.id'))
 
     def __repr__(self):
-        return '<Project: {}>'.format(self.title)
+        return '{}'.format(self.title)
 
 
 class Link(db.Model):
@@ -32,7 +32,7 @@ class Link(db.Model):
     project_id = db.Column(db.Integer, db.ForeignKey('project.id'))
 
     def __repr__(self):
-        return '<Link: {} [{}]>'.format(self.title, self.url)
+        return '{} [{}]'.format(self.title, self.url)
 
 
 class Tag(db.Model):
@@ -40,6 +40,6 @@ class Tag(db.Model):
     name = db.Column(db.String(50), unique=True)
 
     def __repr__(self):
-        return '<Tag: {}>'.format(self.name)
+        return '<{}>'.format(self.name)
 
 
