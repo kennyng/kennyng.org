@@ -154,8 +154,8 @@ ul {
 
 /* MEDIA QUERIES
 -----------------------------------------------------------------------------*/
-/* Larger than small mobile */
-@media (min-width: 320px) {
+/* Larger than standard mobile (Nexus 5: 360px) */
+@media (min-width: 361px) {
   #not-found {
     margin-top: 20vh;
   }
