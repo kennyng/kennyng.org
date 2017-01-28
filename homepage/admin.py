@@ -83,18 +83,17 @@ class ProjectView(AuthModelView):
 
         return Markup(html)
 
-    def _list_format_date(view, context, model, name):
-        return model.date.strftime('%Y-%m')
-
     column_display_pk = True
-    column_formatters = dict(url=_list_format_links, date=_list_format_date)
-    column_list = ('id', 'title', 'date', 'url', 'tags', 'visible')
-    column_labels = dict(id='#', title='Project Name', url='URL(s)',
-                            tags='Tag(s)', visible='Show?')
-    column_sortable_list = ('id', 'title', 'date', 'visible')
-    column_searchable_list = ('title', 'date')
+    column_formatters = dict(url=_list_format_links)
+    column_list = ('id', 'date', 'name', 'url', 'tags', 'display')
+    column_sortable_list = ('id', 'name', 'date')
+    column_default_sort = ('date', True)
+    column_filters = ('date', 'display')
+    column_searchable_list = ('name',)
 
-    form_args = dict(url=dict(label='Project URL'))
+    column_labels = dict(id='#', name='Project Name', url='URLs',
+                            tags='Tags', display='Display?')
+    form_args = dict(url=dict(label='URL'))
 
 
 class LinkView(AuthModelView):
@@ -105,7 +104,7 @@ class LinkView(AuthModelView):
             url=getattr(model, name)))
 
     column_formatters = dict(url=_list_format_link)
-    column_labels = dict(title='Title', url='URL')
+    column_labels = dict(url='URL')
 
 
 class CustomFileAdmin(FileAdmin):

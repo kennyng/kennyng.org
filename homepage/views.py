@@ -4,13 +4,11 @@
     Defines the routes for the application.
 
 """
-from datetime import date
-from flask import (abort, redirect, render_template, request,
-                    session, url_for, flash)
+from flask import render_template
 from sqlalchemy import exc
 
 from homepage import app, db
-from homepage.models import Project, Link, Tag
+from homepage.models import Project
 
 
 @app.route('/')
@@ -22,7 +20,7 @@ def home():
 def projects():
     error = False
     try:
-        projects = Project.query.filter_by(visible=True).order_by(Project.date.desc()).all()
+        projects = Project.query.filter_by(display=True).order_by(Project.date.desc()).all()
     except exc.SQLAlchemyError:
         error = True
         projects = []

@@ -1,4 +1,4 @@
-from datetime import datetime
+from datetime import date
 from homepage import db
 
 
@@ -10,11 +10,11 @@ tags = db.Table('tags',
 
 class Project(db.Model):
     id = db.Column(db.Integer, primary_key=True)
-    title = db.Column(db.String(80))
+    name = db.Column(db.String(80))
     url = db.Column(db.String(255))
     description = db.Column(db.Text)
-    date = db.Column(db.DateTime, default=datetime.utcnow())
-    visible = db.Column(db.Boolean, default=True)
+    date = db.Column(db.Date, default=date.today())
+    display = db.Column(db.Boolean, default=True)
 
     links = db.relationship('Link', backref='project', lazy='select')
     tags = db.relationship('Tag', secondary=tags,
@@ -22,17 +22,17 @@ class Project(db.Model):
     tag_id = db.Column(db.Integer, db.ForeignKey('tag.id'))
 
     def __repr__(self):
-        return '{}'.format(self.title)
+        return '{}'.format(self.name)
 
 
 class Link(db.Model):
     id = db.Column(db.Integer, primary_key=True)
-    title = db.Column(db.String(80))
+    text = db.Column(db.String(80))
     url = db.Column(db.String(255))
     project_id = db.Column(db.Integer, db.ForeignKey('project.id'))
 
     def __repr__(self):
-        return '{} [{}]'.format(self.title, self.url)
+        return '{} [{}]'.format(self.text, self.url)
 
 
 class Tag(db.Model):
