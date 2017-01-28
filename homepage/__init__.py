@@ -18,8 +18,9 @@ app.config.from_object('config.default')
 app.config.from_pyfile('instance.cfg', silent=True)
 
 # Load settings specified by APP_CONFIG_FILE environment variable
+#   (such as 'config.development' or 'config.production')
 # Variables defined here will override default configurations
-# app.config.from_envvar('APP_CONFIG_FILE', silent=True)
+#app.config.from_envvar('APP_CONFIG_FILE', silent=True)
 
 # Disable Flask-SQLAlchemy event notification system.
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False

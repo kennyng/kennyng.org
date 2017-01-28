@@ -30,6 +30,7 @@ if __name__ == '__main__':
     ip = application.config['IP']
     appname = application.config['APP_NAME']
     hostname = application.config['HOST_NAME']
+    debug = application.config['DEBUG']
 
     framework = "wsgiref"
     try:
@@ -39,21 +40,14 @@ if __name__ == '__main__':
     except ImportError:
         pass
 
-    print('STARTING [{}] WSGI SERVER...'.format(framework))
-    if application.config['DEBUG']:
-        print("="*30 + " DEBUG INFO " + "="*30)
-        print("USERNAME: {}".format(application.config['USERNAME']))
-        print("APPNAME: {}".format(appname))
-        print("HOSTNAME: {} | IP: {} | PORT: {}".format(hostname, ip, port))
-        print("PROJECT_DIR: {}".format(application.config['PROJECT_DIR']))
-        print("DATABASE_URI: {}".format(application.config['SQLALCHEMY_DATABASE_URI']))
-        print("="*72)
-
     if framework == "flask":
         from flask import Flask
         server = Flask(__name__)
         server.wsgi_app = application
-        server.run(host=ip, port=port)
+        if debug:
+            server.run(host=ip, port=port, debug=True, use_reloader=True)
+        else:
+            server.run(host=ip, port=port, debug=False, use_reloader=False)
     else:
         from wsgiref.simple_server import make_server
         httpd = make_server(ip, port, application)
