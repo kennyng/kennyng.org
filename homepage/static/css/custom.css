@@ -16,8 +16,6 @@ nav {
 a {
   text-decoration: none;
   color: #111;
-  -webkit-transition: color 0.3s;
-  transition: color 0.3s;
 }
 a:hover {
   color: #1e8bc3;
@@ -62,8 +60,9 @@ ul {
   color: #555;
   border: 3px solid #555;
   border-radius: 6px;
-  padding: 1em;
   max-width: 60rem;
+  padding: 1em;
+  margin-top: -5vh;
 }
 #not-found {
   margin-top: 10vh;
@@ -104,7 +103,7 @@ ul {
 /* PROJECTS
 -----------------------------------------------------------------------------*/
 #projects {
-  padding-top: 20vh;
+  padding-top: 15vh;
   padding-bottom: 15vh;
 }
 .projects-heading {
@@ -134,6 +133,9 @@ ul {
 }
 .project-title a:hover > .fa {
   color: #1e8bc3;
+}
+.project-description p {
+  margin-bottom: 0;
 }
 .project-links {
   font-weight: 300;
