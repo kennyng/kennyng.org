@@ -111,8 +111,10 @@ ul {
   letter-spacing: 0.1em;
 }
 .hr-projects-heading {
+  max-width: 10rem;  /* <div> required for IE */
+}
+.hr-projects-heading hr {
   border-bottom: 6px solid #111;
-  max-width: 10rem;
   margin: 2rem 0 8rem;
 }
 .projects-list {
@@ -174,7 +176,7 @@ ul {
   #home .container {
     background: #fff;
     border: 1px solid #e1e1e1;
-    padding: 2em;
+    padding: 3em;
     box-shadow: 0px 0px 20px 0px rgba(0,0,0,0.75);
   }
   .projects-list {
