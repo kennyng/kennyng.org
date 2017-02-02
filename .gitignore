@@ -6,6 +6,7 @@ __pycache__/
 .*
 !.openshift/
 !.gitignore
+!.htaccess
 
 # Test database files
 *.db
