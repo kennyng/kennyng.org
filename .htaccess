@@ -1,3 +1,5 @@
+TEST.
+
 # Set Cache-Control Headers
 # max-age: 1 YEAR
 <FilesMatch ".(ico|pdf|flv|jpg|jpeg|png|gif|js|css|swf)$">
