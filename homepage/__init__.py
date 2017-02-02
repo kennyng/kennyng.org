@@ -1,5 +1,5 @@
 """
-    hello/__init__.py
+    homepage/__init__.py
     ------------------
     Initializes Flask application and brings all components together.
 
@@ -38,6 +38,6 @@ db = SQLAlchemy(app)
 Misaka(app)
 
 # Import main views module (main pages)
-from homepage import views
+import views
 # Import admin views
 from homepage import admin
