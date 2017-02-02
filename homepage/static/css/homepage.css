@@ -136,6 +136,9 @@ ul {
 .project-title a:hover > .fa {
   color: #1e8bc3;
 }
+.project-title a > .fa {
+  font-size: 2rem;
+}
 .project-description p {
   margin-bottom: 0;
 }
