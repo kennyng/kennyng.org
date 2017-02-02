@@ -9,7 +9,8 @@ from flask_sqlalchemy import SQLAlchemy
 from flask_misaka import Misaka
 
 # Create application object
-app = Flask(__name__, instance_relative_config=True)
+app = Flask(__name__, instance_relative_config=True,
+            static_url_path='static', static_folder='staticfiles')
 
 # Load default configuration settings
 app.config.from_object('config.default')
