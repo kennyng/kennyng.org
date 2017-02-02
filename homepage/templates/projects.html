@@ -4,61 +4,59 @@
 
 {% block page %}
 <body>
-  <header role="banner">
-    <div class="container">
-      <nav role="navigation" class="navbar">
-        <a href="{{ url_for('home') }}">
-          <span class="fa fa-chevron-left fa-fw"></span>
-          Kenny Ng
-        </a>
-      </nav>
-    </div>
-  </header>
-
-  <main role="main">
-    <section id="projects">
-      <div class="container">
-        {%- if error or projects|length == 0 -%}
-        <div class="message external-link">
-          <span class="fa fa-meh-o fa-5x"></span>
-            <p>My projects are unavailable at the moment. <br>
-                Sorry about that. Please visit again at a later time,
-                or check out my
-                <a href="https://github.com/kennyng" rel="external">GitHub profile</a>.
-            </p>
-        </div>
-        {%- else -%}
-        <h1 class="projects-heading mb0 caps">Projects</h1>
-        <p class="projects-subheading mb0 external-link">
-          [ additional projects
-          <a href="https://github.com/kennyng" rel="external noopener" target="_blank">
-            <span class="at">@</span>github</a> ]
-        </p>
-        <div class="hr-projects-heading"><hr></div>
-
-        <div class="projects-list">
-          <ul>
-            {%- for project in projects -%}
-            <li class="project-item">
-              <h4 class="project-title mb0">
-                <a href="{{ project.url|e }}" rel="external noopener" target="_blank">
-                  <span class="fa fa-code"></span>
-                  {{ project.name|e }}
-                </a>
-              </h4>
-              <div class="project-description external-link">
-                {{ project.description|markdown }}
-              </div>
-            </li>
-            {%- if not loop.last -%}
-            <hr class="hr-project-item">
-            {%- endif -%}
-            {%- endfor %}
-          </ul>
-        </div>
-      {%- endif %}
-      </div>
-    </section>
-  </main>
+	<header role="banner">
+		<div class="container">
+			<nav role="navigation" class="navbar">
+				<a href="{{ url_for('home') }}">
+					<span class="fa fa-chevron-left fa-fw"></span>
+					Kenny Ng
+				</a>
+			</nav>
+		</div>
+	</header>
+	<main role="main">
+		<section id="projects">
+			<div class="container">
+				{%- if error or projects|length == 0 -%}
+				<div class="message external-link">
+					<span class="fa fa-meh-o fa-5x"></span>
+						<p>My projects are unavailable at the moment. <br>
+								Sorry about that. Please visit again at a later time,
+								or check out my
+								<a href="https://github.com/kennyng" rel="external">GitHub profile</a>.
+						</p>
+				</div>
+				{%- else -%}
+				<h1 class="projects-heading mb0 caps">Projects</h1>
+				<p class="projects-subheading mb0 external-link">
+					[ additional projects
+					<a href="https://github.com/kennyng" rel="external noopener" target="_blank">
+						<span class="at">@</span>github</a> ]
+				</p>
+				<div class="hr-projects-heading"><hr></div>
+				<div class="projects-list">
+					<ul>
+						{%- for project in projects -%}
+						<li class="project-item">
+							<h4 class="project-title mb0">
+								<a href="{{ project.url|e }}" rel="external noopener" target="_blank">
+									<span class="fa fa-code"></span>
+									{{ project.name|e }}
+								</a>
+							</h4>
+							<div class="project-description external-link">
+								{{ project.description|markdown }}
+							</div>
+						</li>
+						{%- if not loop.last -%}
+						<hr class="hr-project-item">
+						{%- endif -%}
+						{%- endfor %}
+					</ul>
+				</div>
+			{%- endif %}
+			</div>
+		</section>
+	</main>
 </body>
 {% endblock %}
