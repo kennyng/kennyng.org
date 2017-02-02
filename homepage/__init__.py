@@ -10,7 +10,7 @@ from flask_misaka import Misaka
 
 # Create application object
 app = Flask(__name__, instance_relative_config=True,
-            static_url_path='/static', static_folder='staticfiles')
+            static_url_path='', static_folder='static')
 
 # Load default configuration settings
 app.config.from_object('config.default')
@@ -38,6 +38,6 @@ db = SQLAlchemy(app)
 Misaka(app)
 
 # Import main views module (main pages)
-import views
+from homepage import views
 # Import admin views
 from homepage import admin
