@@ -10,7 +10,7 @@ from flask_misaka import Misaka
 
 # Create application object
 app = Flask(__name__, instance_relative_config=True,
-            static_url_path='static', static_folder='staticfiles')
+            static_url_path='/static', static_folder='staticfiles')
 
 # Load default configuration settings
 app.config.from_object('config.default')
